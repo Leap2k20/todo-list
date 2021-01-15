@@ -1,7 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 :root {
     --primary: #1f2933;
     --secondary: #f5f7fa;
     --dark: #1d2025;
     --bg: #2e2e2e;
     --border: #eec9a4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto' , sans-serif;
+}
+body {
+    height: 100%;
+    background-color: var(--dark);
+    color: var(--secondary);
+}
+header {
+    height: 150px;
+    background-color: var(--primary);
+    display:flex;
+    align-items: center;
+}
+.tab {
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.right-bar {
+    height: 8px;
+    width: 40px;
+    border: solid var(--border);
+    border-width: 1px;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+#new-task {
+    font-weight: bold;
+    font-size: 20px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid var(--border);
+    border-radius: 20px;
+    border-width: 1px;
+}
+p {
+    margin-left: 30px;
+}
+.logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#x {
+    width: 40px;
+    height: 8px;
+    border: solid var(--border);
+    border-width: 1px;
+    border-radius: 5px;
+    position: absolute;
+}
+#y {
+    width: 8px;
+    height: 40px;
+    border: solid var(--border);
+    border-width: 1px;
+    border-radius: 5px;
+}
+#todo {
+    margin-left: 30px;
+    width: 30%;
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--primary);
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
+}
+#project {
+    width: 45%;
+    font-family: 'Roboto' , sans-serif;
+    font-size: 50px;
+}
+.contain {
+    height: 100%;
+    width: 100%;
+}
+#sort {
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+}
+.list {
+    height: 80px;
+    width: 70%;
+    border: solid var(--border);
+    border-width: 2px;
+    margin: auto;
+    border-radius: 8px;
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+}
+
+#mark{
+    height: 30px;
+    width: 30px;
+    background-color: var(--primary);
+    border:solid var(--border);
+    border-width: 2px;
+}
+#mark-1 {
+    height: 30px;
+    width: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: var(--primary);
+    border:solid var(--border);
+    border-width: 2px;
+    margin-left: 10px;
+}
+#mark-2 {
+    height: 30px;
+    width: 30px;
+    background-color: var(--primary);
+    border-width: 2px;
+    border:solid var(--border);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+h2 {
+    width: 60%;
+    margin-left: 20px;
+}
+#date {
+    margin-left: 20px;
+    margin-right: 100px;
+}
+.check {
+    width: 35px;
+    height: 32px;
+}
+#checkbox {
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+    border: solid var(--border);
+    background-color: var(--secondary);
+    background: transparent;
+    -webkit-appearance: none;
+}
+#clear {
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 40px;
+    
+}
+.completed-list {
+    height: 80px;
+    width: 70%;
+    border: solid var(--border);
+    border-width: 2px;
+    margin: auto;
+    border-radius: 8px;
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
 }
