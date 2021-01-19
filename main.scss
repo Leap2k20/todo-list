@@ -161,13 +161,13 @@ header {
 }
 
 aside {
-    padding-top: 100px;
+    padding-top: 110px;
     width: 300px;
     height: 100%;
     background-color: var(--primary);
     position: absolute;
     left: -100%;
-    transition: left 0.2s;
+    transition: left 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,6 +176,7 @@ aside {
     button.new-proj {
         width: 180px;
         height: 35px;
+        margin-bottom: 10px;
         border-width: 1px;
         border-radius: 30px;
         border: solid;
@@ -202,10 +203,9 @@ aside {
         justify-content: center;
         align-items: center;
         padding: 10px 0;
-        margin-top: 10px;
         position: relative;
 
-        .extension-button {
+        button {
             border: none;
             background-color: transparent;
             transform: rotate(90deg);
@@ -323,14 +323,49 @@ aside.open {
     display: none;
     flex-wrap: wrap;
 
-    h3 {
+    .title {
         width: 100%;
-        font-size: 30px;
-        color: var(--dark);
-        text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
-        margin: 10px 0 0 20px;
-        border: none;
+        display: flex;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 30px;
+            color: var(--dark);
+            text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
+            margin: 10px 0 0 20px;
+        }
+
+        .exit {
+            width: 35px;
+            height: 26px;
+            display: none;
+            flex-direction: column;
+            position: relative;
+
+            div {
+                width: 35px;
+                height: 7px;
+                border: solid;
+                border-width: 1px;
+                border-color: #d7b798;
+                border-radius: 3px;
+            }
+
+            .one {
+                transform: rotate(-45deg);
+                position: absolute;
+                top: 50%;
+            }
+
+            .two {
+                transform: rotate(45deg);
+                position: absolute;
+                bottom: 20%;
+            }
+        }
     }
+
+
 
     .content-wrapper {
         width: 100%;
@@ -480,14 +515,13 @@ main {
             }
 
             ul {
-                width: 100px;
                 height: 100px;
                 display: none;
                 position: absolute;
                 bottom: -120px;
                 z-index: 1;
                 list-style-type: none;
-                background-color: var(---dark);
+                background-color: var(--dark);
 
                 li {
                     width: 135px;
@@ -496,6 +530,7 @@ main {
                     margin: 5px 0;
                     padding: 5px 0;
                     color: #eec9a4;
+                    background-color: var(--dark);
                 }
             }
 
@@ -524,9 +559,14 @@ main {
             left: 320px;
         }
     }
+    .task-active, .task-done {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
     .task-wrapper {
-        width: 900px;
+        width: 60%;
         height: 48px;
         border: 1px solid var(--border);
         border-radius: 5px;
@@ -694,6 +734,12 @@ main {
         position: unset;
         justify-content: center;
 
+        .title {
+            .exit {
+                display: flex;
+            }
+        }
+
         .content-wrapper {
             align-content: center;
 
@@ -719,5 +765,9 @@ main {
                 left: 0;
             }
         }
+    }
+
+    .none {
+        display: none;
     }
 }
