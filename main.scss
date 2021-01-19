@@ -277,12 +277,11 @@ aside.open {
     background-color: var(--dark);
     border-radius: 7px;
     box-shadow: 0 0 7px 0px #000000ab;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 20;
-    visibility: hidden;
     position: absolute;
     left: calc(50% - 125px);
     top: calc(50% - 70px);
@@ -439,7 +438,7 @@ aside.open {
     }
 }
 
-.add-task.open {
+.add-task.open, .add-project.open {
     display: flex;
 }
 
@@ -500,11 +499,11 @@ main {
                 }
             }
 
-            .dropdown {
+            ul.open {
                 display: block;
             }
 
-            .dropdown li:hover {
+            ul.open li:hover {
                 background-color: #181a1f;
             }
         }
