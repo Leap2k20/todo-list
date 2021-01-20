@@ -497,7 +497,8 @@ main .clear-task button {
 main .task-active, main .task-done {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 main .task-wrapper {
   width: 60%;

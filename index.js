@@ -1,18 +1,32 @@
 ﻿console.log('Hello World');
 
 // Global vars
+// Button
 var bNewTask = document.querySelector('header .part2 .new-task');
 var bSort = document.querySelector('main .sort .sort-content div');
 var bMenu = document.querySelector('header .part1 .menu-icon');
 var bNewProj = document.querySelector('aside .new-proj');
 var bSubmit = document.querySelector('.add-project button');
+var bDone = document.querySelector('.add-task .content-wrapper .priority-wrapper button');
+var bExtensions = document.querySelectorAll('aside .project button');
+
+// Input
 var iProjName = document.querySelector('.add-project input');
+var iTaskName = document.querySelector('.add-task .content-wrapper input.title');
+var iTaskDate = document.querySelector('.add-task .content-wrapper input.date');
+var iTaskDesc = document.querySelector('.add-task .content-wrapper textarea');
 var $nav = document.querySelector('aside');
+var $taskActive = document.querySelector('main .task-active');
+
+// Window
 var wTask = document.querySelector('.add-task');
 var wProj = document.querySelector('.add-project');
 
+// Array
+var projects = [];
+
 // Function
-function fNewProj() {
+function createNewProj() {
     if (iProjName.value === '') {
         alert('Please fill out this field.');
     } else {
@@ -20,6 +34,7 @@ function fNewProj() {
 
         var $project = document.createElement('div');
         $project.className = 'project';
+
         var $project_button = document.createElement('button');
         $project_button.innerHTML = '...';
         $project.append($project_button);
@@ -42,7 +57,82 @@ function fNewProj() {
         $project_extension.append($project_extension_button2);
 
         $nav.append($project);
+        projects.concat($project);
+        $project_button.dataID = projects.indexOf($project);
+        $project_triangle.dataID = projects.indexOf($project);
         iProjName.value = '';
+    }
+}
+
+function createNewTask() {
+    if (iTaskName.value === '') {
+        alert('Please fill out this field.');
+    } else {
+        wTask.classList.toggle('open');
+
+        var $task = document.createElement('div');
+        $task.className = 'task-wrapper';
+
+        var $task_summary = document.createElement('div');
+        $task_summary.className = 'summary';
+
+        var $task_summary_priority = document.createElement('div');
+        $task_summary_priority.className = 'priority';
+        var $task_summary_priority_high = document.createElement('div');
+        $task_summary_priority_high.className = 'priority-high';
+        var $task_summary_priority_mid = document.createElement('div');
+        $task_summary_priority_mid.className = 'priority-mid';
+        var $task_summary_priority_low = document.createElement('div');
+        $task_summary_priority_low.className = 'priority-low';
+        $task_summary_priority.append($task_summary_priority_high);
+        $task_summary_priority.append($task_summary_priority_mid);
+        $task_summary_priority.append($task_summary_priority_low);
+
+        var $task_summary_title = document.createElement('p');
+        $task_summary_title.innerHTML = iTaskName.value;
+
+        var $task_summary_date = document.createElement('span');
+        $task_summary_date.innerHTML = iTaskDate.value;
+
+        var $task_summary_check = document.createElement('input');
+        $task_summary_check.type = 'checkbox';
+
+        $task_summary.append($task_summary_priority);
+        $task_summary.append($task_summary_title);
+        $task_summary.append($task_summary_date);
+        $task_summary.append($task_summary_check);
+
+        var $task_hr = document.createElement('hr');
+
+        var $task_extension_name = document.createElement('div');
+        $task_extension_name.className = 'task-name';
+
+        var $task_extension_name_title = document.createElement('p');
+        $task_extension_name_title.innerHTML = iTaskName;
+        var $task_extension_name_button = document.createElement('button');
+        $task_extension_name_button.innerHTML = '...';
+        var $task_extension_name_urgutgul = document.createElement('div');
+        $task_extension_name_urgutgul.className = 'extension';
+        var $task_extension_name_urgutgul_edit = document.createElement('button');
+        $task_extension_name_urgutgul_edit.innerHTML = 'EDIT';
+        var $task_extension_name_urgutgul_delete = document.createElement('button');
+        $task_extension_name_urgutgul_delete.innerHTML = 'DELETE';
+        $task_extension_name_urgutgul.append($task_extension_name_urgutgul_edit);
+        $task_extension_name_urgutgul.append($task_extension_name_urgutgul_delete);
+        $task_extension_name.append($task_extension_name_title);
+        $task_extension_name.append($task_extension_name_button);
+        $task_extension_name.append($task_extension_name_urgutgul);
+
+        var $task_description = document.createElement('div');
+        $task_description.className = 'task-desc';
+        $task_description.innerHTML = iTaskDesc.value;
+
+
+        $task.append($task_summary);
+        $task.append($task_hr);
+        $task.append($task_extension_name);
+        $task.append($task_description);
+        $taskActive.append($task);
     }
 }
 
@@ -63,9 +153,25 @@ bMenu.onclick = () => {
 
 bNewProj.onclick = () => {
     wProj.classList.toggle('open');
-    bSubmit.onclick = fNewProj;
+    bSubmit.onclick = createNewProj;
 }
 
+bNewTask.onclick = () => {
+    wTask.classList.toggle('open');
+    bDone.onclick = createNewTask;
+}
+
+/*for (var i = 0; i < bExtensions.length; i++) {
+    console.log(i);
+    bExtensions[i].onclick = () => {
+        console.log(1);
+        for (var j = 0; j < projects.length; j++) {
+            if (this.dataID === projects[j].dataID) {
+                projects[j][$project_extension].classList.toggle('open');
+            }
+        }
+    }
+}*/
 
 
 //Main

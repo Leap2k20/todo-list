@@ -34,7 +34,7 @@
             <span>+</span>
             NEW PROJECT
         </button>
-        <div class="project">
+        <!--<div class="project">
             <button>...</button>
             <span class="text">default project</span>
             <span class="triangle">▶︎</span>
@@ -42,79 +42,79 @@
                 <button>EDIT</button>
                 <button>DELETE</button>
             </div>
-        </div>
+        </div>-->
     </aside>
-    <div class="add-project">
-        <input type="text" placeholder="PROJECT NAME" />
-        <button>SUBMIT</button>
-    </div>
-    <div class="add-task">
-        <div class="title">
-            <h3>NEW TASK</h3>
-            <div class="exit">
-                <div class="one"></div>
-                <div class="two"></div>
-            </div>
+        <div class="add-project">
+            <input type="text" placeholder="PROJECT NAME" />
+            <button>SUBMIT</button>
         </div>
-        <div class="content-wrapper">
-            <input type="text" placeholder="Title" />
-            <textarea>Description</textarea>
-            <input type="date" placeholder="Tday" class="date" />
-            <div class="priority-wrapper">
-                <div class="priority">
-                    <h4>Priority</h4>
-                    <div class="priority-low"></div>
-                    <div class="priority-mid"></div>
-                    <div class="priority-high"></div>
+        <div class="add-task">
+            <div class="title">
+                <h3>NEW TASK</h3>
+                <div class="exit">
+                    <div class="one"></div>
+                    <div class="two"></div>
                 </div>
-                <button>DONE</button>
             </div>
-        </div>
-    </div>
-    <main class="">
-        <div class="sort">
-            <div class="sort-content">
-                <span>Sort by:</span>
-                <div>Date created</div>
-                <img src="https://sher-s7.github.io/todo-list/60d062ad30e69a4443535f9f851e1132.svg" alt="sort icon" />
-                <ul class="">
-                    <li>Date created</li>
-                    <li>Priority</li>
-                    <li>Due date</li>
-                </ul>
-            </div>
-        </div>
-        <div class="task-active">
-            <div class="task-wrapper">
-                <div class="summary">
+            <div class="content-wrapper">
+                <input type="text" placeholder="Title" class="title"/>
+                <textarea>Description</textarea>
+                <input type="date" placeholder="Tday" class="date" />
+                <div class="priority-wrapper">
                     <div class="priority">
-                        <div class="priority-high"></div>
-                        <div class="priority-mid"></div>
+                        <h4>Priority</h4>
                         <div class="priority-low"></div>
+                        <div class="priority-mid"></div>
+                        <div class="priority-high"></div>
                     </div>
-                    <p class="">task-1</p>
-                    <span>date</span>
-                    <input type="checkbox" />
+                    <button>DONE</button>
                 </div>
-                <hr />
-                <div class="task-name">
-                    <p>task-1</p>
-                    <button class="extension-button">...</button>
-                    <div class="extension">
-                        <button>EDIT</button>
-                        <button>DELETE</button>
-                    </div>
-                </div>
-                <div class="task-desc">Task-1 desc</div>
             </div>
         </div>
-        <div class="clear-task">
-            <button>Clear completed tasks</button>
-        </div>
-        <div class="task-done"></div>
-    </main>
+        <main class="">
+            <div class="sort">
+                <div class="sort-content">
+                    <span>Sort by:</span>
+                    <div>Date created</div>
+                    <img src="https://sher-s7.github.io/todo-list/60d062ad30e69a4443535f9f851e1132.svg" alt="sort icon" />
+                    <ul class="">
+                        <li>Date created</li>
+                        <li>Priority</li>
+                        <li>Due date</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="task-active">
+                <div class="task-wrapper">
+                    <div class="summary">
+                        <div class="priority">
+                            <div class="priority-high"></div>
+                            <div class="priority-mid"></div>
+                            <div class="priority-low"></div>
+                        </div>
+                        <p class="">task-1</p>
+                        <span>date</span>
+                        <input type="checkbox" />
+                    </div>
+                    <hr />
+                    <div class="task-name">
+                        <p>task-1</p>
+                        <button class="extension-button">...</button>
+                        <div class="extension">
+                            <button>EDIT</button>
+                            <button>DELETE</button>
+                        </div>
+                    </div>
+                    <div class="task-desc">Task-1 desc</div>
+                </div>
+            </div>
+            <div class="clear-task">
+                <button>Clear completed tasks</button>
+            </div>
+            <div class="task-done"></div>
+        </main>
 
 
-    <script src="./index.js"></script>
-</body>
-</html>
+        <script src="./index.js"></script>
+    </body>
+    </html>
