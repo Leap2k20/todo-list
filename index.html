@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TODO LIST</title>
-  <link rel="stylesheet" href="./index.css">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="part1">
+            <div class="menu-icon">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <h1>TODO</h1>
+        </div>
+        <div class="part2">
+            <h2>Default Project</h2>
+            <div class="new-task">
+                <div class="plus">
+                    <div class="bosoo">
+                        <div class="hewtee"></div>
+                    </div>
+                    <div class="hewtee"></div>
+                </div>
+                <span>new task</span>
+            </div>
+        </div>
+    </header>
+    <aside class="">
+        <button class="new-proj">
+            <span>+</span>
+            NEW PROJECT
+        </button>
+        <div class="project">
+            <button class="extension-button">...</button>
+            <span class="text">default project</span>
+            <span class="triangle">▶︎</span>
+            <div class="extension">
+                <button>EDIT</button>
+                <button>DELETE</button>
+            </div>
+        </div>
+    </aside>
+    <div class="add-project">
+        <input type="text" placeholder="PROJECT NAME" />
+        <button>SUBMIT</button>
+    </div>
+    <div class="add-task">
+        <h3>NEW TASK</h3>
+        <div class="content-wrapper">
+            <input type="text" placeholder="Title" />
+            <textarea>Description</textarea>
+            <input type="date" placeholder="Tday" class="date" />
+            <div class="priority-wrapper">
+                <div class="priority">
+                    <h4>Priority</h4>
+                    <div class="priority-low"></div>
+                    <div class="priority-mid"></div>
+                    <div class="priority-high"></div>
+                </div>
+                <button>DONE</button>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="sort">
+            <div class="sort-content">
+                <span>Sort by:</span>
+                <div class="sort-date">Date created</div>
+                <img src="https://sher-s7.github.io/todo-list/60d062ad30e69a4443535f9f851e1132.svg" alt="sort icon" class="sort-arrow"/>
+                <ul class="">
+                    <li>Date created</li>
+                    <li>Priority</li>
+                    <li>Due date</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task-active">
+            <div class="task-wrapper">
+                <div class="summary">
+                    <div class="priority">
+                        <div class="priority-high"></div>
+                        <div class="priority-mid"></div>
+                        <div class="priority-low"></div>
+                    </div>
+                    <p class="">task-1</p>
+                    <span>date</span>
+                    <input type="checkbox" />
+                </div>
+                <hr />
+                <div class="task-name">
+                    <p>task-1</p>
+                    <button class="extension-button">...</button>
+                    <div class="extension">
+                        <button>EDIT</button>
+                        <button>DELETE</button>
+                    </div>
+                </div>
+                <div class="task-desc">Task-1 desc</div>
+            </div>
+        </div>
+        <div class="clear-task">
+            <button>Clear completed tasks</button>
+        </div>
+        <div class="task-done"></div>
+    </main>
 
-  <script src="./index.js"></script>
+
+    <script src="./index.js"></script>
 </body>
 </html>
