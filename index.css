@@ -1,7 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 :root {
     --primary: #1f2933;
     --secondary: #f5f7fa;
     --dark: #1d2025;
     --bg: #2e2e2e;
     --border: #eec9a4;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: white;
+}
+
+header {
+    display: flex;
+    background-color: var(--primary);
+    height: 100px;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+h1 {
+    position: absolute;
+    left: 120px;
+    font-weight: 900;
+    font-size: 55px;
+    color: var(--primary);
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
+}
+
+h2 {
+    font-style: 100px;
+}
+
+.triple .icon {
+    width: 32px;
+    height: 5px;
+    background-color: transparent;
+    border: 1px solid var(--border);
+    margin: 2px 0;
+    vertical-align: middle;
+    border-radius: 23px;
+    transition: 0.4s;
+}
+
+.adder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.adder .plus1, .plus2 {
+    width: 25px;
+    height: 5px;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    background-color: transparent;
+}
+
+.adder .plus2 {
+    position: absolute;
+    transform: rotate(90deg);
+}
+
+.adder .new-task {
+    display: initial;
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--secondary);
+    font-weight: 400;
+    vertical-align: middle;
+    margin-left: 7px;
 }
