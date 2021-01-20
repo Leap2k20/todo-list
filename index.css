@@ -185,38 +185,13 @@ aside .project {
   padding: 10px 0;
   position: relative;
 }
-aside .project button {
+aside .project button1 {
   border: none;
   background-color: transparent;
   transform: rotate(90deg);
   font-size: 20px;
   font-weight: 900;
   color: var(--border);
-}
-aside .project .extension {
-  position: absolute;
-  bottom: -140%;
-  left: 25px;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  visibility: hidden;
-}
-aside .project .extension button {
-  margin-top: 10px;
-  width: 100px;
-  height: 30px;
-  color: #d7b798;
-  font-size: 16px;
-  font-weight: 300;
-  border-width: 1px;
-  border: solid;
-  border-width: 1px;
-  border-color: #d7b798;
-  background-color: #1d2025;
-}
-aside .project .extension.open {
-  display: none;
 }
 aside .project .text {
   width: 220px;
@@ -231,8 +206,33 @@ aside .project .triangle {
   text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
   transition: all 0.2s;
 }
-aside .project .triangle.rotate {
+aside .project .triangle.open {
   transform: rotate(90deg);
+}
+aside .project .extension {
+  position: absolute;
+  bottom: -140%;
+  left: 25px;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+}
+aside .project .extension button {
+  transform: none;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  color: #d7b798;
+  font-size: 16px;
+  font-weight: 300;
+  border-width: 1px;
+  border: solid;
+  border-width: 1px;
+  border-color: #d7b798;
+  background-color: #1d2025;
+}
+aside .project .extension.open {
+  display: flex;
 }
 aside .project:hover {
   background-color: var(--dark);

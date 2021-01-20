@@ -8,7 +8,7 @@ var bMenu = document.querySelector('header .part1 .menu-icon');
 var bNewProj = document.querySelector('aside .new-proj');
 var bSubmit = document.querySelector('.add-project button');
 var bDone = document.querySelector('.add-task .content-wrapper .priority-wrapper button');
-var bExtensions = document.querySelectorAll('aside .project button');
+
 
 // Input
 var iProjName = document.querySelector('.add-project input');
@@ -35,8 +35,9 @@ function createNewProj() {
         var $project = document.createElement('div');
         $project.className = 'project';
 
-        var $project_button = document.createElement('button');
+        var $project_button = document.createElement('button1');
         $project_button.innerHTML = '...';
+        $project_button.classList.add('threeDot');
         $project.append($project_button);
         var $project_name = document.createElement('span');
         $project_name.className = 'text';
@@ -53,14 +54,45 @@ function createNewProj() {
         $project_extension_button1.innerHTML = 'EDIT';
         $project_extension.append($project_extension_button1);
         var $project_extension_button2 = document.createElement('button');
-        $project_extension_button1.innerHTML = 'DELETE';
+        $project_extension_button2.innerHTML = 'DELETE';
         $project_extension.append($project_extension_button2);
 
+        // Object attributes
+        var project = {
+            threeDot : $project_button,
+            name : $project_name,
+            triangle : $project_triangle,
+            extension : $project_extension,
+            edit : $project_extension_button1,
+            dlete : $project_extension_button2,
+        }
+        console.log(project);
+
+        // Append elements
         $nav.append($project);
-        projects.concat($project);
-        $project_button.dataID = projects.indexOf($project);
-        $project_triangle.dataID = projects.indexOf($project);
+        projects = projects.concat(project);
+        $project_button.dataID = projects.indexOf(project);
+        console.log(projects.indexOf(project));
+        $project_triangle.dataID = projects.indexOf(project);
+        $project_extension_button1.dataID = projects.indexOf(project);
+        $project_extension_button2.dataID = projects.indexOf(project);
         iProjName.value = '';
+
+
+        var bExtensions = document.querySelectorAll('aside .project button1');
+        for (var i = 0; i < bExtensions.length; i++) {
+            bExtensions[i].onclick = () => {
+                console.log('daragdaw');
+                for (var j = 1; j < projects.length; j++) {
+                    console.log('daragdaw1');
+                    console.log(i + ' ' + j);
+                    if (i == j) {
+                        console.log('daragdaw2');
+                        projects[j-1]['extension'].classList.toggle('open');
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -104,24 +136,24 @@ function createNewTask() {
 
         var $task_hr = document.createElement('hr');
 
-        var $task_extension_name = document.createElement('div');
-        $task_extension_name.className = 'task-name';
+        var $task_extension = document.createElement('div');
+        $task_extension.className = 'task-name';
 
-        var $task_extension_name_title = document.createElement('p');
-        $task_extension_name_title.innerHTML = iTaskName;
-        var $task_extension_name_button = document.createElement('button');
-        $task_extension_name_button.innerHTML = '...';
-        var $task_extension_name_urgutgul = document.createElement('div');
-        $task_extension_name_urgutgul.className = 'extension';
-        var $task_extension_name_urgutgul_edit = document.createElement('button');
-        $task_extension_name_urgutgul_edit.innerHTML = 'EDIT';
-        var $task_extension_name_urgutgul_delete = document.createElement('button');
-        $task_extension_name_urgutgul_delete.innerHTML = 'DELETE';
-        $task_extension_name_urgutgul.append($task_extension_name_urgutgul_edit);
-        $task_extension_name_urgutgul.append($task_extension_name_urgutgul_delete);
-        $task_extension_name.append($task_extension_name_title);
-        $task_extension_name.append($task_extension_name_button);
-        $task_extension_name.append($task_extension_name_urgutgul);
+        var $task_extension_title = document.createElement('p');
+        $task_extension_title.innerHTML = iTaskName;
+        var $task_extension_button = document.createElement('button');
+        $task_extension_button.innerHTML = '...';
+        var $task_extension_urgutgul = document.createElement('div');
+        $task_extension_urgutgul.className = 'extension';
+        var $task_extension_urgutgul_edit = document.createElement('button');
+        $task_extension_urgutgul_edit.innerHTML = 'EDIT';
+        var $task_extension_urgutgul_delete = document.createElement('button');
+        $task_extension_urgutgul_delete.innerHTML = 'DELETE';
+        $task_extension_urgutgul.append($task_extension_urgutgul_edit);
+        $task_extension_urgutgul.append($task_extension_urgutgul_delete);
+        $task_extension.append($task_extension_title);
+        $task_extension.append($task_extension_button);
+        $task_extension.append($task_extension_urgutgul);
 
         var $task_description = document.createElement('div');
         $task_description.className = 'task-desc';
@@ -130,7 +162,7 @@ function createNewTask() {
 
         $task.append($task_summary);
         $task.append($task_hr);
-        $task.append($task_extension_name);
+        $task.append($task_extension);
         $task.append($task_description);
         $taskActive.append($task);
     }
@@ -161,17 +193,7 @@ bNewTask.onclick = () => {
     bDone.onclick = createNewTask;
 }
 
-/*for (var i = 0; i < bExtensions.length; i++) {
-    console.log(i);
-    bExtensions[i].onclick = () => {
-        console.log(1);
-        for (var j = 0; j < projects.length; j++) {
-            if (this.dataID === projects[j].dataID) {
-                projects[j][$project_extension].classList.toggle('open');
-            }
-        }
-    }
-}*/
+
 
 
 //Main
