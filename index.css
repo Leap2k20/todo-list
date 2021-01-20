@@ -181,16 +181,18 @@ input[type="checkbox"]{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    
+}
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
+    background-color: var(--bg);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
+    border: 1px solid var(--border);
+    width: 30%; /* Could be more or less, depending on screen size */
+    position: relative;
+}
   
   /* The Close Button */
   .close {
@@ -206,3 +208,47 @@ input[type="checkbox"]{
     text-decoration: none;
     cursor: pointer;
   }
+
+/* Modal Form */
+#modal-form {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    clear: right;
+    margin-top: 14px;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 100px 100px 100px;
+    justify-items: center;
+    align-items: unset;
+    background-size: contain;
+}
+.modalform-title{
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#modal-form #description{
+    height: 200px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#modal-form #modalform-date{
+    height: 40px;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-column-end: 3;
+}
+#modal-form #modalform-submit{
+    height: 40px;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-column-end: 3;
+}
+#modal-form #modalform-prio{
+    
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 3;
+}
