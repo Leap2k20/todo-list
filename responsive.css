@@ -1,0 +1,32 @@
+@media screen and (max-width: 600px) {
+    h1  {
+        display: none;
+    }
+    .new_task_text {
+        display: none;
+    }
+    .task_completed_container, .task_todo_container {
+        width: 96vw;
+    }
+    .new_project_box {
+        margin-right: 1vw;
+    }
+   
+    h2 {
+        font-size: 18px;
+    }
+    .header_part {
+        height: 50px;
+    }
+
+}
+
+@media screen and (max-height: 400px) {
+    header {
+        top: 0;
+        position: sticky;
+        z-index: 100;
+    }
+  
+
+}

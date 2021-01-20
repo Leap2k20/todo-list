@@ -2,9 +2,101 @@
 <html>
 <head>
   <title>TODO LIST</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./responsive.css">
 </head>
 <body>
+
+  <header> 
+    <div class="header_part">
+      <div class="nav_bar" >
+        <div class="nar_bars_container">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <h1 class="text_todo">TODO</h1>
+      <h2 class="project_name">My Project</h2>
+      <div class="new_project_box">
+        <div class="plus_to_cross">
+          <div class="plus_icon">
+            <div class="plusbar1"></div>
+            <div class="plusbar2"></div>
+          </div>
+        </div>
+        <div class="new_task_text">new task</div>
+      </div>
+    </div>
+    <div class="sortby_part">     
+      <div class="sortby">
+        <div class="sortby_text">Sort by:</div>
+        <select>
+          <option class="sort_option" value="">Date created</option>
+          <option class="sort_option" value="">Priority</option>
+          <option class="sort_option" value="">Due date</option>    
+        </select>
+        
+        <div class="sort_arrow" id="arrow">↑↓</div>
+      </div>  
+    </div>    
+  </header>
+
+
+
+  <div class="task">
+    
+
+
+
+    <div class="task_todo_container">
+      <div class="priority_pill">
+        <div class="box" id="low"></div>
+        <div class="box" id="medium"></div>
+        <div class="box" id="high"></div>
+      </div>
+      <span class="title">title</span> 
+      <span class="date">jan 18, 2021</span>
+      <label class="container">
+        <input type="checkbox" >
+        <span class="checkmark"></span>
+      </label>
+
+     
+
+
+      
+    </div>
+
+    <button class="clear_button">Clear completed tasks </button>
+
+    <div class="task_completed_container">
+      <div class="priority_pill">
+          <div class="box" id="low"></div>
+          <div class="box" id="medium"></div>
+          <div class="box" id="high"></div>
+        </div>
+        <span class="title">title</span> 
+        <span class="date">jan 18, 2021</span>
+        <label class="container">
+          <input type="checkbox" >
+          <span class="checkmark"></span>
+        </label>
+      
+          
+      
+    </div>
+
+
+
+
+  </div>
+
+  
+
+
 
   <script src="./index.js"></script>
 </body>
