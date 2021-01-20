@@ -5,7 +5,75 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-
+  <header class="flex test">
+    <div class="menu">
+      <div class="top1"></div>
+      <div class="middle1"></div>
+      <div class="bottom1"></div>
+    </div>
+    <h1 class="hidden-md">TODO</h1>
+    <div class="cont flex center">
+      <div class="plus">
+        <div class="plus top"></div>
+      </div>
+      <div class="newtask hidden-md">new task</div>
+    </div>
+  </header>
+  <div class=" flex">
+    <div class="taskcreator flex"></div>  
+  </div>
+  <div class="main">
+    <div class="choice flex">
+      <div class="sort">Sort by:</div>
+      <div class="change">
+        <button type="text" class="toggle ">Date created</button>
+        <div class="change-content">
+          <li>Date created</li>
+          <li>Priority</li>
+          <li>Due date</li>
+        </div>
+      </div>
+      <div id="arrow"><img src="arrow2.svg"></div>
+    </div>
+    <div class="list-container flex">
+      <div class="list flex resize">
+        <div class="priority flex">
+          <div class="first"></div>
+          <div class="second"></div>
+          <div class="third"></div>
+        </div>
+        <p>ӨГЛӨӨ СЭРЭХ</p>
+        <p class="date">Jan 13, 2021</p>
+        <input type="checkbox" class="check-box" id="box-1">
+        <label for="box-1"></label>
+      </div>
+      <div class="clear">
+        <u class="clear-task">Clear completed tasks</u>
+      </div>
+      <div class="list flex resize">
+        <div class="priority flex">
+          <div class="first"></div>
+          <div class="second"></div>
+          <div class="third"></div>
+        </div>
+        <del>КИНО ҮЗЭХ</del>
+        <p class="date">Jan 13, 2021</p>
+        <input type="checkbox" class="check-box" id="box-2">
+        <label for="box-2"></label>
+      </div>
+      <div class="list flex resize">
+        <div class="priority flex">
+          <div class="first"></div>
+          <div class="second"></div>
+          <div class="third"></div>
+        </div>
+        <del>НОХОЙГОО САЛ...</del>
+        <p class="date">Jan 13, 2021</p>
+        <input type="checkbox" class="check-box" id="box-3">
+        <label for="box-3"></label>
+      </div>
+    </div>
+  </div>
   <script src="./index.js"></script>
 </body>
 </html>
