@@ -2,85 +2,67 @@
 <html>
 <head>
   <title>TODO LIST</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>New Task</h3>
-      <div id="modal-form">
-        <input type="text" placeholder="Title" class="modalform-title">
-        <textarea placeholder="Description" id="description"></textarea>
-        <input type="date" id="modalform-date">
-        <span id="modalform-prio">Priority</span>
-        <input type= "submit" id="modalform-submit">
-      </div>
-    </div>
-  </div>
   <header>
-    <ul>
-      <li>
-        <div id="menu-icon">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+    <div class="todo">
+      <div class="menu-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>        
+      </div>
+      <h1>TODO</h1>
+    </div>
+      <h2>Default Project</h2>
+      <div class="add-task">
+        <div class="nemeh">
+          <div class="bosoo"></div>
+          <div class="hevtee"></div>
         </div>
-      </li>
-      <li><h1>TODO</h1></li>
-      <li><h2>Default Project</h2></li>
-      <li>
-        <div id="newtask">
-          <div id="nemeh">
-            <div id="nemeh-icon">
-            <div id="bosoo"></div>
-            <div id="hevtee"></div>
-            </div>
-          </div>
-          <span>New Task</span>
-        </div>
-      </li>
-    </ul>
+        <div>New Task</div>
+      </div>
   </header>
-  <div class="task">
-    <div id="sort">Sort by:
+  <main>
+    <div class="sort">
+      <span>Sory by:</span>
       <select>
         <option value="1">Date Created</option>
         <option value="2">Priority</option>
         <option value="3">Due Date</option>
       </select>
     </div>
-    <div id="task">
-      <div class="prio">
-        <table>
-          <tr>
-          <td id="ch1"></td>
-          <td id="ch2"></td>
-          <td id="ch3"></td>
-          </tr>
-          </table>
+    <div class="active-task">
+      <div class="task-container">
+        <!-- <div class="priority">
+            <div id="prio1"></div>
+            <div id="prio2"></div>
+            <div id="prio3"></div>
+        </div> -->
+        <div>Өглөө сэрэх</div>
+        <div>2020.01.21</div>
+        <div>
+          <input type="checkbox">
+        </div>
       </div>
-      <div id="text">text</div>
-      <div id="date">date</div>
-      <input type="checkbox">
     </div>
-    <button id="clear">Clear Completed tasks</button>
-    <div id="completed">
-      <div class="prio">
-        <table>
-          <tr>
-          <td id="ch1"></td>
-          <td id="ch2"></td>
-          <td id="ch3"></td>
-          </tr>
-          </table>
-      </div>
-      <div id="text">text</div>
-      <div id="date">date</div>
-      <input type="checkbox">
+    <button>Clear Completed tasks</button>
+    <div class="task-container">
+      <div>Өглөө сэрэх</div>
+        <div>2020.01.21</div>
+        <div>
+          <input type="checkbox" checked>
+        </div>
     </div>
-  </div>
+    <div class="task-container">
+      <div>Өглөө сэрэх</div>
+        <div>2020.01.21</div>
+        <div>
+          <input type="checkbox" checked>
+        </div>
+    </div>
+  </main>
   <script src="./index.js"></script>
 </body>
 </html>
