@@ -1,11 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
+﻿<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>TODO LIST</title>
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <div class="navBar">
+    <div class="btn" onclick="onClickMov();">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
+    </div>
+    <div class="name">TODO</div>
+    <div class="ProjectName">
+      <h1>Default Project</h1>
+    </div>
+    <div class="newTask">
+      <div class="button">
+        <div class="plus">
+          <div class="plus-bar1"></div>
+          <div class="plus-bar2"></div>
+        </div>
+        <span class="plus-text">new task</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="sort-bar">
+      <span>Sort by:</span>
+      <span class="sort" onclick="onClickSort();">Date created</span>    
+      <span class="arrow">↓↑</span>
+      <ul class="sort-list">
+        <li class="list">Date created</li>
+        <li class="list">Priority</li>
+        <li class="list">Due date</li>
+      </ul>
+    </div>
+    <div class="todolist" onclick="onClickcollapsed();">
+      <div class="priority priority-3">
+        <table class="erembe-container" cellpadding="8" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="erembe-1"></td>
+              <td class="erembe-2"></td>
+              <td class="erembe-3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="todo-title">HARRY POTTER222</span>
+      <span class="todo-date">Jan 17, 2021</span>
+      <label class="checkbox-label">
+        <input type="checkbox" class="todo-completed">
+          <span class="checkbox-custom"></span>
+        
+      </label>
+    </div>
+    <div class="todo-secondary"></div>
+  </div>
+  <p class="clear-btn">Clear completed tasks</p>
+  <div class="sidenav">
+    <button id="createNewProject">
+      <span>+</span>
+      NEW PROJECT
+    </button>
+    <ul class="project-name-list">
+      <div class="threeDots">...</div>
+      <span class="projectname">Defualt Project</span>
+      <span class="playbutton">▶︎</span>
+    </ul>
+  </div>
+  <script src="index.js"></script>
 
-  <script src="./index.js"></script>
-</body>
-</html>
+
+</body></html>
