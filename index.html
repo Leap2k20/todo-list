@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
+﻿<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>TODO LIST</title>
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div class="navBar">
-    <div class="btn">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+    <div class="btn" onclick="onClickMov();">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
     </div>
     <div class="name">TODO</div>
     <div class="ProjectName">
@@ -28,10 +27,15 @@
   <div class="main">
     <div class="sort-bar">
       <span>Sort by:</span>
-      <span class="sort">Date created</span>
+      <span class="sort" onclick="onClickSort();">Date created</span>    
       <span class="arrow">↓↑</span>
+      <ul class="sort-list">
+        <li class="list">Date created</li>
+        <li class="list">Priority</li>
+        <li class="list">Due date</li>
+      </ul>
     </div>
-    <div class="todolist">
+    <div class="todolist" onclick="onClickcollapsed();">
       <div class="priority priority-3">
         <table class="erembe-container" cellpadding="8" cellspacing="0">
           <tbody>
@@ -48,11 +52,24 @@
       <label class="checkbox-label">
         <input type="checkbox" class="todo-completed">
           <span class="checkbox-custom"></span>
-        </input>
+        
       </label>
     </div>
     <div class="todo-secondary"></div>
   </div>
-  <script src="./index.js"></script>
-</body>
-</html>
+  <p class="clear-btn">Clear completed tasks</p>
+  <div class="sidenav">
+    <button id="createNewProject">
+      <span>+</span>
+      NEW PROJECT
+    </button>
+    <ul class="project-name-list">
+      <div class="threeDots">...</div>
+      <span class="projectname">Defualt Project</span>
+      <span class="playbutton">▶︎</span>
+    </ul>
+  </div>
+  <script src="index.js"></script>
+
+
+</body></html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300,400;0,700;0,900;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 :root {
     --primary: #1f2933;
     --secondary: #f5f7fa;
@@ -140,11 +140,37 @@ h1{
     margin: 0 20px;
     cursor: pointer;
     color: var(--border);
+    position: relative;
 }
+
+.sort-list {
+    position: absolute;
+    top: 120px;
+    list-style-type: none;
+    color: var(--border);
+    visibility: hidden;
+}
+
+.list{
+    background-color: var(--dark);
+    width: 120px;
+    margin: 5px 0;
+}
+
+
+.list:hover{
+    background-color: #121212;
+}
+
+.hide {
+    visibility: visible;
+}
+
 
 .arrow{
     cursor: pointer;
 }
+
 
 /* todomain */
 
@@ -207,4 +233,71 @@ h1{
     border-radius: 4px;
     margin: 3px 3px 3px 4px;
     margin-right: 8px;
+}
+
+.clear-btn{
+    margin-left: 400px;
+    color: #808080;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* sidenav */
+
+.sidenav{
+    width: 300px;
+    height: calc(100% - 99px);
+    top: 99px;
+    background-color: var(--primary);
+    position: absolute;
+    left: -300px;
+    transition: 0.2s;
+}
+
+.mov{
+    left: 0;
+}
+
+#createNewProject{
+    margin: 10px auto;
+    height: 32px;
+    padding-left: 26px;
+    padding-right: 26px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+    background-color: var(--bg);
+}
+
+#createNewProject span {
+    font-size: 30px;
+    line-height: 28px;
+    margin-right: 5px;
+    color: var(--bg);
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
+}
+
+.threeDots {
+    width: 10px;
+    border: 1px solid white;
+    display: inline;
+    content: "\2807";
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--border);
+}
+
+.playbutton{
+float: right;
+    margin-right: 20px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    font-size: 18px;
+    color: var(--bg);
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
 }
