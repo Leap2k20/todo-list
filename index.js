@@ -15,14 +15,14 @@ onclear.addEventListener('click',function(){
     box.classList.add('show');
 });
 
-var modalClose = document.querySelector('.modal-close');
-
-modalClose.addEventListener('click',function(){
+box.onclick = function(event) {
+    if (event.target == box) {
     box.classList.remove('show');
-});
+    }
+}
 
-
-//    function onClickcollapsed(){
-//      console.log("hellow World");
-//        sungah.classList.toggle('collapsed');
-//    }
+var todoListSungah = document.querySelector('.todo-list');
+var secondary = document.querySelector('.todo-secondary');
+todoListSungah.onclick = function() {
+    secondary.classList.toggle('sungah');
+}
