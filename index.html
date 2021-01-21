@@ -71,7 +71,34 @@
   </div>
   <div class="whiteBox">
     <div class="modal">
-      <span class="modal-close">x</span>
+      <div class="newTaskHeader">
+        <h1>NEW TASK</h1>
+        <span class="modal-close">x</span>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item-right">
+          <div class="flex-item-input1">
+            <input class="formTitle"></input>
+          </div>
+          <div class="flex-item-input2">
+            <input class="formTaskDisc"></input>
+          </div>
+        </div>
+        <div class="flex-item-left">
+          <div class="flex-item-input1">
+            <input type="date" name="duedate" class="formItem duedate" value="2021-01-21">
+          </div>
+          <div class="flex-item-input2">
+            <div class="formItem modal-priority">
+              <label id="plabel">Priority</label>
+              <span class="priority-option" id="priority-1"></span>
+              <span class="priority-option darken" id="priority-2"></span>
+              <span class="priority-option darken" id="priority-3"></span>    
+            </div>
+          <input type="submit" value="DONE" class="formItem submit" id="submit">
+          </div>
+        </div>
+      </div>      
     </div>    
   </div>  
   <script src="index.js"></script>
