@@ -10,7 +10,12 @@ var modal = document.getElementById('modal');
 // var modal = document.getElementById('modal');
 var btn = document.querySelector("#plus-li");
 
-
+var isModalOpen = false;
 btn.onclick = function() {
-    todoList.classList.remove('');
-  }
+    if (isModalOpen) {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'block';
+    }
+    isModalOpen = !isModalOpen;
+}
