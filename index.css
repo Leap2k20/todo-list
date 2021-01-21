@@ -68,7 +68,7 @@ h1{
     flex-direction: row;
 }
 
-.button{
+#button{
     display: flex;
     flex-direction: row;    
     height: 44px;
@@ -79,7 +79,7 @@ h1{
     justify-content: center;
 }
 
-.button:hover{
+#button:hover{
     border: 1px solid var(--border);
     border-radius: 20px;
     color: var(--border);
@@ -292,7 +292,7 @@ h1{
     color: var(--border);
 }
 
-.playbutton{
+.playbutton {
 float: right;
     margin-right: 20px;
     cursor: pointer;
@@ -300,4 +300,36 @@ float: right;
     font-size: 18px;
     color: var(--bg);
     text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
+}
+
+.whiteBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: 0.1s;
+}
+
+.show{
+    visibility: visible;
+}
+
+.modal {
+    width: 35%;
+    height: 50%;
+    border: 1px solid var(--border);
+    position: fixed;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-weight: bolder;
 }
