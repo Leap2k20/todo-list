@@ -341,10 +341,9 @@ float: right;
 }
 
 .modal {
-    width: 31%;
-    height: 41%;
+    width: 600px;
+    height: 430px;
     border: 2px solid var(--border);
-    position: fixed;
     display: flex;
     flex-direction: column;
 }

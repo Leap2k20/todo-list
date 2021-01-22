@@ -23,6 +23,7 @@ box.onclick = function(event) {
 
 var todoListSungah = document.querySelector('.todo-list');
 var secondary = document.querySelector('.todo-secondary');
+
 todoListSungah.onclick = function() {
     secondary.classList.toggle('sungah');
 }
