@@ -5,7 +5,112 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-
+  <header>
+    <div class="burger-menu">
+      <div class="content">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+    <h1 class="logo">TODO</h2>
+    <h2 class="project-name">Default Project</h1>
+    <div class="actions">
+      <div id="add-task">
+        <div class="plus-container">
+          <div id="plus-1"></div>
+          <div id="plus-2"></div>
+        </div>
+        <span>new task</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="sort-container flex">
+      <label for=""> Sort By :</label>
+      <div class="sort-dropdown">
+        <span>Date Created</span>
+        <div class="content">
+          <div class="dropdown-item">Date created</div>
+          <div class="dropdown-item">Priority</div>
+          <div class="dropdown-item">Due date</div>
+        </div>
+      </div>
+    </div>
+    <ul class="todo-list">
+      <li>
+        <div class="todo-item">
+          <div class="priority">
+            <div class="low"></div>
+            <div class="medium"></div>
+            <div class="hight"></div>
+          </div>
+          <span class="todo-item-title">DA</span>
+          <span class="created-at">Jan 24, 2021</span>
+          <div class="item-status">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </div>
+        </div>
+      </li>
+    </div>
+    <div id="clear-completed-task">Clear completed tasks</div>
+    <ul id="completed-task-list"  class="mt-8">
+      <li>
+        <div class="todo-item">
+          <div class="priority">
+            <div class="low"></div>
+            <div class="medium"></div>
+            <div class="hight"></div>
+          </div>
+          <span class="todo-item-title">DA</span>
+          <span class="created-at">Jan 24, 2021</span>
+          <div class="item-status">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="todo-item">
+          <div class="priority">
+            <div class="low"></div>
+            <div class="medium"></div>
+            <div class="hight"></div>
+          </div>
+          <span class="todo-item-title">DA</span>
+          <span class="created-at">Jan 24, 2021</span>
+          <div class="item-status">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <div id="modal-container">
+    <div class="modal">
+      <label for="add-task" class="title">New Task</label>
+      <div class="row flex">
+        <input type="text" placeholder="Title" id="title" class="flex-1">
+        <div class="gap"></div>
+        <input type="date" id="date" class="flex-1">
+      </div>
+      <div class="row flex">
+        <textarea name="" id="" cols="30" rows="6" class="flex-1" placeholder="Description"></textarea>
+        <div class="gap"></div>
+        <div class="flex-1 space-between flex column">
+          <div class="priority flex">
+            <span>Priority</span>
+            <div class="low flex-1"></div>
+            <div class="medium flex-1"></div>
+            <div class="hight flex-1"></div>
+          </div>
+          <button>Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="./index.js"></script>
 </body>
 </html>
