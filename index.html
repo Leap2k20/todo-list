@@ -4,35 +4,49 @@
   <title>TODO LIST</title>
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./index-600px.css">
-  <link rel="stylesheet" type="text/css" href="glyphicons-only-bootstrap/css/bootstrap.min.css">
 </head>
 <body>
    <header>
       <div class="tab">
-        <div class="right-bar"></div>
-        <div class="right-bar"></div>
-        <div class="right-bar"></div>
+           <div class="right-bar"></div>
+            <div class="right-bar"></div>
+           <div class="right-bar"></div>
       </div>
-      <div id="todo">TODO</div>
-      <div id="project">Default Project</div>
-      <div id="new-task">
-        <div class="logo">
-          <div id="x"></div>
-          <div id="y"></div>
-        </div>
-          <span>new task</span>
-        </div>
-   </header>>
-   <div id="contain">
-      <div id="sort">
-        <p>Sort by : </p>
-      <select>
+             <div id="todo">TODO</div>
+             <div id="project">Default Project</div>
+             <div class="new-task" onclick="onclicknewtask()">
+                <div class="logo">
+                    <div id="x"></div>
+                    <div id="y"></div>
+                </div>
+                <span>new task</span>
+             </div>
+   </header>
+     <div id="contain">
+         <div class="modal" id="mod">
+            <h1>New task</h1>
+            <div class="modal-1">
+              <input type="text" class="modal-title">
+              <input type="date" class="modal-date">
+            </div>
+            <div class="modal-2">
+              <textarea></textarea>
+            </div>
+            <div class="modal-3">
+              <div class="modal-marks"></div>
+              <div class="done"></div>
+            </div> 
+         </div>
+             <div id="sort">
+                 <p>Sort by : </p>
+            <select>
         <option id="option">Date Greated</option>
         <option id="option">Priorty</option>
         <option id="option">Due Date</option>
       </select>
-      </div>
-    <div class="list">
+            </div>
+      <div class="item">
+    <div class="list" id="lis" onclick="clickList()">
         <div id="mark-1"></div>
         <div id="mark"></div>
         <div id="mark-2"></div>
@@ -43,7 +57,10 @@
         <span class="checkbox-custom"></span>
       </label>
     </div>
-      <div class="list">
+    <div id="zone" class="zone"></div>
+  </div>
+  <div class="item">
+      <div class="list" id="2" onclick="clickList()">
         <div id="mark-1"></div>
         <div id="mark"></div>
         <div id="mark-2"></div>
@@ -54,7 +71,10 @@
           <span class="checkbox-custom"></span>
         </label>
       </div>
-      <div class="list">
+      <div id="0" class="zone"></div>
+    </div>
+    <div class="item">
+      <div class="list" id="1" onclick="clickList()">
         <div id="mark-1"></div>
         <div id="mark"></div>
         <div id="mark-2"></div>
@@ -65,6 +85,8 @@
           <span class="checkbox-custom"></span>
         </label>
       </div>
+      <div id="zone" class="zone"></div>
+    </div>
       <div id="clear">Clear completed tasks</div>
       <div class="completed-list">
         <div id="mark-1"></div>
@@ -77,6 +99,7 @@
           <span class="checkbox-custom"></span>
         </label>
       </div>
+      <div id="title"></div>
       <div class="completed-list">
         <div id="mark-1"></div>
         <div id="mark"></div>
@@ -88,6 +111,7 @@
           <span class="checkbox-custom"></span>
         </label>
       </div>
+      <div id="title"></div>
       <div class="completed-list">
         <div id="mark-1"></div>
         <div id="mark"></div>
@@ -99,6 +123,7 @@
           <span class="checkbox-custom"></span>
         </label>
       </div>
+      <div id="title"></div>
    </div>
   <script src="./index.js"></script>
 </body>

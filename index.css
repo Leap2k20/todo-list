@@ -37,7 +37,7 @@ header {
     border-radius: 5px;
     margin: 3px;
 }
-#new-task {
+.new-task {
     margin: 20px;
     font-weight: bold;
     font-size: 18px;
@@ -46,16 +46,17 @@ header {
     align-items: center;
     width: max-content;
     position: relative;
-    transition:all 0.5s;
-    border:var(--border);
+    border:transparent var(--border);
+    transition: all 0.5s ;
     border-radius: 20px;
     border-width: 1px;
 }
-#new-task:hover {
+.new-task:hover {
     border: solid var(--border);
     border-radius: 20px;
     border-width: 1px;
     color: var(--border);
+    cursor: pointer;
 }
 span {
     margin-left:5px;
@@ -81,8 +82,58 @@ span {
     width: 7px;
     height: 35px;
     border: solid var(--border);
-    border-width: 1px;
+    border-width: 0.5px;
     border-radius: 5px;
+}
+.modal {
+    display: none;
+    background-color: var(--primary);
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    width: 600px;
+    height: 500px;
+    border: solid var(--border);
+}
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--primary);
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);   
+}
+.modal-1 {
+    border: solid var(--border);
+    width: 100%;
+    height: 200px;
+}
+.modal-title {
+    border: solid var(--border);
+    height: 200px;
+    width: 200px;
+}
+.modal-2 {
+    display: inline-block;
+    border: solid var(--border);
+    width: 48%;
+    height: 200px;
+}
+.modal-3 {
+    display: inline-block;
+    border: solid var(--border);
+    width: 48%;
+    height: 200px;
+}
+.modal-marks {
+    height: 70px;
+    width: 200px;
+    background-color: red;
+}
+.done {
+    height: 70px;
+    width: 100%;
+    background-color: green;
 }
 #todo {
     margin-left: 20px;
@@ -123,19 +174,28 @@ select {
     width: 70%;
     border: solid var(--border);
     border-width: 2px;
-    margin: auto;
     border-radius: 8px;
+    margin: auto;
     margin-top: 7px;
     display: flex;
     align-items: center;
 }
-
+.title {
+    margin: auto;
+    height: 100px;
+    width: 70%;
+    border: solid var(--border);
+    border-width: 1px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: none;
+}
 #mark{
     height: 20px;
     width: 20px;
     background-color: var(--primary);
     border:solid var(--border);
-    border-width: 2px;
+    border-width: 1px;
     border-right: none;
     border-left: none;
 }
@@ -146,14 +206,14 @@ select {
     border-bottom-left-radius: 30px;
     background-color: var(--primary);
     border:solid var(--border);
-    border-width: 2px;
+    border-width: 1px;
     margin-left: 10px;
 }
 #mark-2 {
     height: 20px;
     width: 20px;
     background-color: var(--primary);
-    border-width: 2px;
+    border-width: 1px;
     border:solid var(--border);
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
