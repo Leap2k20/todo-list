@@ -3,6 +3,7 @@
 <head>
   <title>TODO LIST</title>
   <link rel="stylesheet" href="./index.css">
+  <meta charset="utf-8">
 </head>
 <body>
   <header>
@@ -37,62 +38,18 @@
         </div>
       </div>
     </div>
-    <ul class="todo-list">
-      <li>
-        <div class="todo-item">
-          <div class="priority">
-            <div class="low"></div>
-            <div class="medium"></div>
-            <div class="hight"></div>
-          </div>
-          <span class="todo-item-title">DA</span>
-          <span class="created-at">Jan 24, 2021</span>
-          <div class="item-status">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </div>
-        </div>
-      </li>
-    </div>
+    <ul id="todo-list"></ul>
     <div id="clear-completed-task">Clear completed tasks</div>
-    <ul id="completed-task-list"  class="mt-8">
-      <li>
-        <div class="todo-item">
-          <div class="priority">
-            <div class="low"></div>
-            <div class="medium"></div>
-            <div class="hight"></div>
-          </div>
-          <span class="todo-item-title">DA</span>
-          <span class="created-at">Jan 24, 2021</span>
-          <div class="item-status">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="todo-item">
-          <div class="priority">
-            <div class="low"></div>
-            <div class="medium"></div>
-            <div class="hight"></div>
-          </div>
-          <span class="todo-item-title">DA</span>
-          <span class="created-at">Jan 24, 2021</span>
-          <div class="item-status">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <ul id="todo-list-completed" class="mt-8"></ul>
   </main>
   <div id="modal-container">
     <div class="modal">
       <label for="add-task" class="title">New Task</label>
       <div class="row flex">
-        <input type="text" placeholder="Title" id="title" class="flex-1">
+        <div class="input-wrapper">
+          <p class="error-message">Гарчиг нь 5-с дээш тэмдэгт байх шаардлагатай</p>
+          <input type="text" placeholder="Title" id="title" class="flex-1">
+        </div>
         <div class="gap"></div>
         <input type="date" id="date" class="flex-1">
       </div>
@@ -100,18 +57,21 @@
         <textarea name="" id="description" cols="30" rows="6" class="flex-1" placeholder="Description"></textarea>
         <div class="gap"></div>
         <div class="flex-1 space-between flex column">
-          <div class="priority flex">
-            <span>Priority</span>
-            <div class="low flex-1"></div>
-            <div class="medium flex-1"></div>
-            <div class="hight flex-1"></div>
-          </div>
+          <fieldset class="priority low" data-priority="1">
+            <legend>Priority</legend>
+            <div class="flex">
+              <div class="priority-item flex-1" data-priority="1"></div>
+              <div class="priority-item flex-1" data-priority="2"></div>
+              <div class="priority-item flex-1" data-priority="3"></div>
+            </div>
+          </fieldset>
           <button class="done-button">Done</button>
         </div>
       </div>
     </div>
   </div>
-  <script src="./index.js"></script>
-  <script src="./main.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/controller.js"></script>
+  <script src="./js/view.js"></script>
 </body>
 </html>
