@@ -90,10 +90,10 @@ header .actions .plus-container > div {
 }
 header .actions .plus-container > #plus-1 {
     position: absolute;
-} 
+}
 header .actions .plus-container > #plus-2 {
     transform: rotate(90deg);
-} 
+}
 header .actions span {
     margin-left: 15px;
 }
@@ -213,7 +213,7 @@ main {
 }
 
 #modal-container .modal {
-    
+
     width: 45%;
     margin: 10% auto;
     padding: 15px 15px;
