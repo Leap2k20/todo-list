@@ -15,9 +15,15 @@ function toggleIsDone() {
     draw();
 }
 function toggleTodoItem() {
-    this.querySelector('.item-more').classList.toggle('hidden')
+    this.querySelector('.item-more').classList.toggle('hidden');
     this.classList.toggle('todo-item-collapsed');
 }
+
+function toggleKebab() {
+    console.log(this);
+    this.querySelector('ul').classList.toggle('hidden');
+}
+
 function updateTodo() {
     // Step 1: update todo item in todos list
     // todos[i].title = ''

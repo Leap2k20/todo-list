@@ -59,14 +59,27 @@ function $createTodo(todo) {
         </div>
         <div class="item-more hidden">
             <div class="divider-border"></div>
-            <div>${todo.title}</span>
-            <div>${todo.description}</span>
-        </div>
+            <div class="row flex">
+              <div class="flex-1">
+                  <h4>${todo.title}</h4>
+                  <h5>${todo.description}</h5>
+              </div>
+              <div>
+                <div class="kebab">
+                    <span class="kebab-more">...</span>
+                    <ul class="hidden">
+                        <li class="item-edit">EDIT</li>
+                        <li class="item-edlete">DELETE</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
         </div>`;
 
     $todoLi.innerHTML = todoContent;
     $todoLi.querySelector('.is-done').onchange = toggleIsDone;
     $todoLi.onclick = toggleTodoItem;
+    $todoLi.querySelector('.kebab').onclick = toggleKebab
     return $todoLi;
 }
 
