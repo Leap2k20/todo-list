@@ -10,7 +10,30 @@ var $description = $modal.querySelector('#description');
 var $dueDate = $modal.querySelector('#due-date');
 
 
+//priority Component
+var $priority = $modal.querySelector('.priority-items');
+var $priorityItems = $priority.querySelectorAll('.priority');
 
+$priorityItems.forEach(($items)=>{
+    $items.addEventListener('click',function(){
+        $priority.className = 'priority-items';
+        $priority.dataset.priority = this.dataset.priority;
+
+
+        switch(this.dataset.priority){
+            case '1':
+                $priority.classList.add('low');
+                break
+            case '2':
+                $priority.classList.add('medium');
+                break
+            case '3':
+                $priority.classList.add('high');
+                break
+        }
+    
+    })
+})
 //click model
 var isModalOpen = false;
 $btn.onclick = function() {
@@ -31,25 +54,35 @@ $doneButton.onclick = function(){
         title: $title.value,
         description: $description.value,
         duedate: $dueDate.value,
-        priority: 1,
+        priority: $priority.dataset.priority,
     };
+    console.log(newTodo);
     addTodo(newTodo);
+    $modal.style.display = 'none';
 };
 
 //create todo
 function $createTodo(todo){
     var $todoDiv = document.createElement('div');
+    var priorityClass = 'low';
+    if(todo.priority =='2'){
+        priorityClass = 'medium'
+    }
+    if(todo.priority == '3'){
+        priorityClass = 'high'
+    }
+
     var todoContent = `<div class="todo-item collapsed" id="1">
                     <div class="todo-main">
-                        <div class="p-icon">
-                            <div class="priority priority-1 priority-1-color"></div>
-                            <div class="priority priority-2 priority-2-color"></div>
-                            <div class="priority priority-3 priority-3-color"></div>
+                        <div class="priority-items ${priorityClass}">
+                            <div class="priority priority-1"></div>
+                            <div class="priority priority-2"></div>
+                            <div class="priority priority-3"></div>
                         </div>
                         <span class="todo-title">${todo.title}</span>
-                        <span class="toto-date">${todo.duedate}1</span>
+                        <span class="toto-date">${todo.duedate}</span>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkbox-completed">
+                            <input type="checkbox" class="is-done">
                             <span class="checkbox-custom"></span>
 
                         </label>
@@ -80,13 +113,15 @@ function draw(){
 
 
 
-// // todo click
+// todo click
+
 // var mainTodoList = document.querySelector('#todo-list>div');
 // function onClickButton(){
 //     mainTodoList.classList.toggle('collapsed');
 // }
-
 // mainTodoList.onclick = onClickButton;
+
+
 
 // //priority click
 

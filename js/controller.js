@@ -1,6 +1,5 @@
 
 var todos=[];
-
 function addTodo(newTodo){
     todos.push(newTodo);
      draw();

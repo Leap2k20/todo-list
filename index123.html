@@ -8,31 +8,34 @@
         <link rel="stylesheet" href="https://sher-s7.github.io/todo-list/glyphicons-only-bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <div id="content">
-            <div id="modal">     
-                <div class="modal-content">
-                    <h3 id="modal-header">NEW TASK</h3>
-                    <div id="modal-form" class="flex">
-                        <div class="flex-1">
-                            <input id="title" type="text"placeholder="Title" maxlength="25"  class="formItem">
-                            <textarea id="description" placeholder="Description" class="formItem" ></textarea>
-                        </div>
-                        <div class="flex-1">
-                            <input type="date" id="due-date" class="formItem duedate" value="2021-01-25">
-                                <span id="plabel">Priority</span> 
-                            <div class=" modal-priority formItem  flex"> 
-                                <div  class="priority priority-1-color flex-1"></div> 
-                                <div  class="priority priority-2-color flex-1"></div> 
-                                <div  class="priority priority-3-color  flex-1"></div>     
-                            </div>
-                            <button class="formItem" id="submit">DONE</button>
-                                
-                        </div>
+        <div id="modal">     
+            <div class="modal-content">
+                <h3 id="modal-header">NEW TASK</h3>
+                <div id="modal-form" class="flex">
+                    <div class="flex-1">
+                        <input id="title" type="text"placeholder="Title" maxlength="25"  class="formItem">
+                        <textarea id="description" placeholder="Description" class="formItem" ></textarea>
                     </div>
-                    
+                    <div class="flex-1">
+                        <input type="date" id="due-date" class="formItem duedate" value="2021-01-25">
+                        <div style="height: 20px;"></div>
+                        <fieldset class="formItem" >
+                            <legend id="pr">Priority</legend> 
+                            <div class="priority-items low" data-priority="1"> 
+                                <div  class="priority flex-1" data-priority="1"></div> 
+                                <div  class="priority flex-1" data-priority="2"></div> 
+                                <div  class="priority flex-1" data-priority="3"></div>     
+                            </div>
+                        </fieldset>
+                        <div style="height: 40px;"></div>
+                        <button class="formItem" id="submit">DONE</button>
+                    </div>
                 </div>
-        
+                
             </div>
+    
+        </div>
+        <div id="content">
             <header >
             <ul >
                 <li>
@@ -81,14 +84,14 @@
                     <!-- <div class="todo-item collapsed" id="1">
                         <div class="todo-main">
                             <div class="p-icon">
-                                <div class="priority priority-1 priority-1-color"></div>
-                                <div class="priority priority-2 priority-2-color"></div>
-                                <div class="priority priority-3 priority-3-color"></div>
+                                <div class="priority priority-1 priority-low"></div>
+                                <div class="priority priority-2 priority-medium"></div>
+                                <div class="priority priority-3 priority-high"></div>
                             </div>
                             <span class="todo-title">todo-title</span>
                             <span class="toto-date">19/01/2021</span>
                             <label class="checkbox-label">
-                                <input type="checkbox" class="checkbox-completed">
+                                <input type="checkbox" class="is-done">
                                 <span class="checkbox-custom"></span>
                     
                             </label>

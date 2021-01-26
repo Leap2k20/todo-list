@@ -23,20 +23,26 @@ li {
 .column {display: flex; flex-direction: column;};
 .row {display: flex; flex-direction: row;}
 
-
+body, html {
+    background-color: var(--dark);
+}
 #content {
+    position: relative;
     color: var(--secondary);
     background-color: var(--dark);
+    width: 100%;
     height: 100vh;
-    position: relative;
 }
 
 
 /* header heseg */
 
 header {
+    position: fixed;
     background-color: var(--primary);
     width: 100%;
+    z-index: 1;
+    
 }
 
 #hamburger-icon {
@@ -100,7 +106,7 @@ header ul li:nth-child(3){
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: 2;
     background-color: var(--dark);
     width: 600px;
     height: 50%;
@@ -141,19 +147,41 @@ header ul li:nth-child(3){
     resize: vertical;
 }
 
-.modal-priority .priority {
-    height: 90%;
-    margin: 3px;
-    border: solid 2px var(--border);
+#pr {
+    font-size: 15px;
+    margin-left: 30px;
+}
+.priority-items {
+    display: flex;
+    height: 40px;
+    margin-left: 6px;
 }
 
-.modal-priority {
-    padding: 10px;
+.todo-main .priority-items{
+    width: 60px;
+    height: 25px;
 }
-.priority-1-color {background-color: #693e3e; }
-.priority-2-color {background-color: #6b2525; }
-.priority-3-color {background-color: #6f0000; }
-.dark {background-color: var(--dark);}
+
+.priority-items.low>.priority:nth-child(1){
+    background-color: #693e3e;
+}
+
+.priority-items.medium>.priority:nth-child(1){
+    background-color: #693e3e;
+}
+.priority-items.medium>.priority:nth-child(2){
+    background-color: #6b2525;
+}
+
+.priority-items.high>.priority:nth-child(1){
+    background-color: #693e3e;
+}
+.priority-items.high>.priority:nth-child(2){
+    background-color: #6b2525;
+}
+.priority-items.high>.priority:nth-child(3){
+    background-color:#6f0000;
+}
 
 
 /* header */ /* header */ /* header */
@@ -255,6 +283,9 @@ header ul li:last-child{
 
 /* main todo lists */
 #todo-list {
+    position: absolute;
+    left: 20%;
+    top: 150px;
     margin: auto;
     width: 60%;
 }
@@ -280,17 +311,11 @@ header ul li:last-child{
 }
 
 
-.p-icon {
-    display: flex;
-    width: 60px;
-    height: 25px;
-    align-items: center;
-}
-
 .priority {
     width: 30%;
-    height: 17px;
+    height: 90%;
     border: solid 1px var(--border);
+    background-color: transparent;
 }
 
 .priority-1 {
