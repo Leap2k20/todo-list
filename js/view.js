@@ -45,6 +45,7 @@ function $createTodo(todo) {
 
     var todoContent = `
         <div class="todo-item">
+        <div class="item-display">
           <div class="priority ${ priorityClass }">
             <div class="priority-item"></div>
             <div class="priority-item"></div>
@@ -55,10 +56,17 @@ function $createTodo(todo) {
           <div class="item-status">
             <input type="checkbox" ${ todo.isDone ? 'checked' : '' } class="is-done" data-id="${ todo.id }">
           </div>
+        </div>
+        <div class="item-more hidden">
+            <div class="divider-border"></div>
+            <div>${todo.title}</span>
+            <div>${todo.description}</span>
+        </div>
         </div>`;
 
     $todoLi.innerHTML = todoContent;
     $todoLi.querySelector('.is-done').onchange = toggleIsDone;
+    $todoLi.onclick = toggleTodoItem;
     return $todoLi;
 }
 
