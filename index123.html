@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO LIST</title>
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="index-max600.css" media="screen and (max-width: 600px)">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap">
+        <link rel="stylesheet" href="https://sher-s7.github.io/todo-list/glyphicons-only-bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="modal">     
+            <div class="modal-content">
+                <h3 id="modal-header">NEW TASK</h3>
+                <div id="modal-form" class="flex">
+                    <div class="flex-1">
+                        <input id="title" type="text"placeholder="Title" maxlength="25"  class="formItem">
+                        <textarea id="description" placeholder="Description" class="formItem" ></textarea>
+                    </div>
+                    <div class="flex-1">
+                        <input type="date" id="due-date" class="formItem duedate" value="2021-01-25">
+                        <div style="height: 20px;"></div>
+                        <fieldset class="formItem" >
+                            <legend id="pr">Priority</legend> 
+                            <div class="priority-items low" data-priority="1"> 
+                                <div  class="priority flex-1" data-priority="1"></div> 
+                                <div  class="priority flex-1" data-priority="2"></div> 
+                                <div  class="priority flex-1" data-priority="3"></div>     
+                            </div>
+                        </fieldset>
+                        <div style="height: 40px;"></div>
+                        <button class="formItem" id="submit">DONE</button>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+        <div id="content">
+            <header >
+            <ul >
+                <li>
+                    <div id="hamburger-icon">
+                        <div id="bar-1" class="bar"></div>
+                        <div id="bar-2" class="bar"></div>
+                        <div id="bar-3" class="bar"></div>
+                    </div>
+                </li>
+                <li>
+                    <h1>TODO</h1>
+                </li>
+                <li>
+                    <div id="project-name">
+                        <h2>Default Project</h2>
+                    </div>
+                </li>
+                <li id="plus-li">
+                    <div id="plus-div">
+                        <div id="plus-icon">
+                            <div id="plusbar1"></div>
+                            <div id="plusbar2"></div>
+                        </div> 
+                    </div>
+                    <span id="plus-text" >new task</span>
+                    
+                </li>
+            </ul>
+            <div id="sortbar">
+                <div>
+                    <span>Sort by:</span>
+                    <select id="current-sort">
+                        <option value="Date created">Date created</option>
+                        <option value="Priority">Priority</option>
+                        <option value="Due date">Due date</option>
+                    </select>
+                    <span id="sort-direction">
+                        <img id="sort-icon" src="https://sher-s7.github.io/todo-list/60d062ad30e69a4443535f9f851e1132.svg" alt="">
+                    </span>
+                </div>
+                </div>
+            </header>
+            
+            <div class="body">
+                <div id="todo-list">
+                    <!-- <div class="todo-item collapsed" id="1">
+                        <div class="todo-main">
+                            <div class="p-icon">
+                                <div class="priority priority-1 priority-low"></div>
+                                <div class="priority priority-2 priority-medium"></div>
+                                <div class="priority priority-3 priority-high"></div>
+                            </div>
+                            <span class="todo-title">todo-title</span>
+                            <span class="toto-date">19/01/2021</span>
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="is-done">
+                                <span class="checkbox-custom"></span>
+                    
+                            </label>
+                        </div>
+                        <div class="todo-secondary">
+                            <span class="full-todo-title">hello world</span>
+                            <button class="kebab"></button>
+                            <p class="todo-desc">hello world hello world</p>
+                        </div>
+                    </div> -->
+                </div>
+                <button id="clear-button">Clear completed-tasks</button>
+                <div id="completed-todo-list"></div>
+            </div>
+        </div>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+    
+ 
+  
+    </body>
+</html>
