@@ -6,29 +6,34 @@
     --bg: #2e2e2e;
     --border: #eec9a4;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto' , sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
+
 body {
     height: 100%;
     background-color: var(--dark);
     color: var(--secondary);
 }
+
 header {
     height: 100px;
     background-color: var(--primary);
-    display:flex;
+    display: flex;
     align-items: center;
 }
+
 .tab {
     height: 50px;
     width: 50px;
     margin-top: 10px;
     margin-left: 10px;
 }
+
 .right-bar {
     height: 7px;
     width: 35px;
@@ -37,6 +42,7 @@ header {
     border-radius: 5px;
     margin: 3px;
 }
+
 .new-task {
     margin: 20px;
     font-weight: bold;
@@ -46,11 +52,12 @@ header {
     align-items: center;
     width: max-content;
     position: relative;
-    border:transparent var(--border);
-    transition: all 0.5s ;
+    border: transparent var(--border);
+    transition: all 0.5s;
     border-radius: 20px;
     border-width: 1px;
 }
+
 .new-task:hover {
     border: solid var(--border);
     border-radius: 20px;
@@ -58,10 +65,12 @@ header {
     color: var(--border);
     cursor: pointer;
 }
+
 span {
-    margin-left:5px;
+    margin-left: 5px;
     margin-right: 10px;
 }
+
 .logo {
     margin-left: 0px;
     width: 40px;
@@ -70,6 +79,7 @@ span {
     justify-content: center;
     align-items: center;
 }
+
 #x {
     width: 35px;
     height: 7px;
@@ -78,6 +88,7 @@ span {
     border-radius: 5px;
     position: absolute;
 }
+
 #y {
     width: 7px;
     height: 35px;
@@ -85,6 +96,7 @@ span {
     border-width: 0.5px;
     border-radius: 5px;
 }
+
 .modal {
     display: none;
     background-color: var(--primary);
@@ -97,71 +109,79 @@ span {
     height: 500px;
     border: solid var(--border);
 }
+
 h1 {
     margin: 20px;
     font-size: 40px;
     font-weight: 900;
     color: var(--primary);
-    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);   
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
 }
+
 .modal-1 {
     width: 100%;
     height: 150px;
 }
+
 .modal-text {
     width: 40%;
     height: 80px;
     border: solid var(--border);
-    background-color:var(--primary);
+    background-color: var(--primary);
     border-radius: 5px;
     border-width: 1px;
     margin-left: 20px;
     font-size: 20px;
     color: white;
 }
+
 .modal-date {
     width: 40%;
     height: 80px;
     border: solid var(--border);
-    background-color:var(--primary);
+    background-color: var(--primary);
     border-radius: 5px;
     border-width: 1px;
     margin-left: 20px;
     font-size: 20px;
     color: white;
 }
+
 .modal-2 {
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     width: 100%;
     height: 200px;
 }
+
 .modal-text-area {
     min-height: 200px;
     min-width: 200px;
     margin-left: 20px;
     border: solid var(--border);
-    background-color:var(--primary);
+    background-color: var(--primary);
     border-radius: 5px;
     border-width: 1px;
     font-size: 20px;
     color: white;
 }
+
 .modal-marks {
     height: 70px;
     width: 200px;
     border: solid var(--border);
-    background-color:var(--primary);
+    background-color: var(--primary);
     border-radius: 5px;
     border-width: 1px;
     margin-left: 100px;
     margin-bottom: 50px;
 }
+
 .done {
     height: 70px;
     width: 200px;
     border: solid var(--border);
-    background-color:var(--primary);
+    background-color: var(--primary);
     border-radius: 5px;
     border-width: 1px;
     margin-left: 100px;
@@ -169,27 +189,31 @@ h1 {
     font-weight: 900;
     color: white;
 }
+
 #todo {
     margin-left: 20px;
     width: 30%;
     font-size: 60px;
     font-weight: 900;
     color: var(--primary);
-    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);   
+    text-shadow: -1px -1px 0 var(--border), 1px -1px 0 var(--border), -1px 1px 0 var(--border), 1px 1px 0 var(--border);
 }
+
 #project {
     width: 30%;
-    font-family: 'Roboto' , sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
+
 .contain {
     height: 100%;
     width: 100%;
 }
+
 #sort {
-    display:flex;
+    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -197,23 +221,26 @@ h1 {
     height: 60px;
     width: 100%;
 }
+
 select {
     background-color: var(--dark);
     font-size: 18px;
     border: none;
     color: var(--border);
 }
+
 .list {
     height: 40px;
     width: 70%;
-    border: solid var(--border);
-    border-width: 2px;
+    border:solid var(--border);
+    border-width: 1px;
     border-radius: 8px;
     margin: auto;
     margin-top: 7px;
     display: flex;
     align-items: center;
 }
+
 .title {
     margin: auto;
     height: 100px;
@@ -224,45 +251,51 @@ select {
     border-bottom-right-radius: 8px;
     border-top: none;
 }
-#mark{
+
+#mark {
     height: 20px;
     width: 20px;
     background-color: var(--primary);
-    border:solid var(--border);
+    border: solid var(--border);
     border-width: 1px;
     border-right: none;
     border-left: none;
 }
+
 #mark-1 {
     height: 20px;
     width: 20px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     background-color: var(--primary);
-    border:solid var(--border);
+    border: solid var(--border);
     border-width: 1px;
     margin-left: 10px;
 }
+
 #mark-2 {
     height: 20px;
     width: 20px;
     background-color: var(--primary);
     border-width: 1px;
-    border:solid var(--border);
+    border: solid var(--border);
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }
+
 h2 {
     width: 80%;
     margin-left: 20px;
     text-align: center;
 }
+
 #date {
     margin-left: 20px;
     margin-right: 100px;
     text-align: center;
     width: 30%;
 }
+
 /* .check {
     width: 35px;
     height: 32px;
@@ -274,10 +307,12 @@ h2 {
     border: solid var(--border);
     background-color: var(--secondary);   
 } */
+
 .checkbox-label {
     position: relative;
 }
-.checkbox-label>input{
+
+.checkbox-label>input {
     width: 25px;
     height: 25px;
     appearance: none;
@@ -290,6 +325,7 @@ h2 {
 .checkbox-label>input:checked {
     background-color: var(--bg);
 }
+
 .checkbox-label>input:checked+span::before {
     position: absolute;
     color: var(--dark);
@@ -305,6 +341,7 @@ h2 {
     cursor: pointer;
     text-align: center;
 }
+
 #clear {
     text-align: center;
     font-size: 18px;
@@ -312,11 +349,12 @@ h2 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .completed-list {
     height: 40px;
     width: 70%;
     border: solid var(--border);
-    border-width: 2px;
+    border-width: 1px;
     margin: auto;
     border-radius: 8px;
     margin-top: 7px;
