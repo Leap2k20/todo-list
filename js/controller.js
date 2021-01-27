@@ -1,15 +1,21 @@
 
 var todos=[];
+
 function addTodo(newTodo){
     todos.push(newTodo);
      draw();
 }
 
 
-function markAsDone(){
-    // marked todo item as done
-    // show update in screen -draw()
+function toggleIsDone(){
+    var id = this.dataset.id;
+    var todoItem = todos.find(function(todo){
+        return todo.id === id;
+    });
 
+    todoItem.isDone = this.checked;
+    draw();
+    // show update in screen -draw()
 }
 
 function updateTodo(){

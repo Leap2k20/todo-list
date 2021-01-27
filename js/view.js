@@ -46,20 +46,20 @@ $btn.onclick = function() {
     isModalOpen = !isModalOpen;  
   }
 
-// done darahad modal alga boloh
-$doneButton.onclick = function(){
-    $modal.style.display = 'none';
 
+$doneButton.onclick = function(){
     var newTodo = {
         title: $title.value,
+        id: parseInt(Math.random()*999999999),       
         description: $description.value,
         duedate: $dueDate.value,
         priority: $priority.dataset.priority,
+        isDone: false,
     };
-    console.log(newTodo);
     addTodo(newTodo);
     $modal.style.display = 'none';
 };
+
 
 //create todo
 function $createTodo(todo){
@@ -72,7 +72,7 @@ function $createTodo(todo){
         priorityClass = 'high'
     }
 
-    var todoContent = `<div class="todo-item collapsed" id="1">
+    var todoContent = `<div class="todo-item collapsed">
                     <div class="todo-main">
                         <div class="priority-items ${priorityClass}">
                             <div class="priority priority-1"></div>
@@ -82,7 +82,7 @@ function $createTodo(todo){
                         <span class="todo-title">${todo.title}</span>
                         <span class="toto-date">${todo.duedate}</span>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="is-done">
+                            <input type="checkbox" data-id='${todo.id}' class="is-done">
                             <span class="checkbox-custom"></span>
 
                         </label>
@@ -93,7 +93,9 @@ function $createTodo(todo){
                         <p class="todo-desc">${todo.description}</p>
                     </div>
                 </div>`;
+                
     $todoDiv.innerHTML= todoContent;
+    $todoDiv.querySelector('.is-done').onchange = toggleIsDone;
     return $todoDiv;
 }
 
