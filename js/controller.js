@@ -2,6 +2,8 @@ var todos = [];
 
 function addTodo(newTodo) {
     todos.push(newTodo);
+
+    localStorage.setItem('todos', JSON.stringify(todos));
     draw();
 }
 
@@ -12,19 +14,31 @@ function toggleIsDone() {
     });
     todoItem.isDone = this.checked;
 
+    localStorage.setItem('todos', JSON.stringify(todos));
     draw();
 }
 
-function updateTodo() {
-    // Step 1: update todo item in todos list
-    // todos[i].title = ''
+function updateTodo(id, title, description, dueDate, priority) {
+    var index = todos.findIndex((todo) => {
+        return todo.id == id;
+    })
+    todos[index].title = title;
+    todos[index].description = description;
+    todos[index].dueDate = dueDate;
+    todos[index].priority = priority;
 
-    // Step 2: show update in screen - draw();
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    draw();
 }
 
 function clearCompletedTodos() {
-    // Step 1: remove completed todos from todos list
-    // Step 2: show updates in browser - draw();
+    todos = todos.filter((todo) => {
+        return !todo.isDone;
+    });
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    draw();
 }
 
 function deleteTodo() {
@@ -32,11 +46,49 @@ function deleteTodo() {
     todos = todos.filter((todo) => {
         return todo.id != id;
     });
+    localStorage.setItem('todos', JSON.stringify(todos));
 
     draw();
 }
 
 function sort() {
-    // Step 1: sort todos list
-    // Step 2: show update in browser - draw()
+    switch(this.dataset.sortby) {
+        case 'created':
+            todos.sort((item1, item2) => {
+                if (item1.createdAt === item2.createdAt) return 0;
+                if (item1.createdAt < item2.createdAt) return -1;
+                if (item1.createdAt > item2.createdAt) return 1;
+            });
+            break;
+        case 'priority':
+            todos.sort((item1, item2) => {
+                if (item1.priority === item2.priority) return 0;
+                if (item1.priority < item2.priority) return -1;
+                if (item1.priority > item2.priority) return 1;
+            });
+            break;
+        case 'dueDate':
+            todos.sort((item1, item2) => {
+                if (item1.dueDate === item2.dueDate) return 0;
+                if (item1.dueDate < item2.dueDate) return -1;
+                if (item1.dueDate > item2.dueDate) return 1;
+            });
+            break;
+    }
+
+    draw();
+}
+
+function getTodoById(id) {
+    return todos.find((item) => {
+        return item.id == id;
+    });
+}
+
+window.onload = function() {
+    var localStorageTodos = JSON.parse(localStorage.getItem('todos'));
+    if (localStorageTodos) {
+        todos = localStorageTodos;
+    }
+    draw();
 }

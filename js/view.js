@@ -2,40 +2,49 @@ var $todoList = document.querySelector('#todo-list');
 var $completedTodoList = document.querySelector('#todo-list-completed');
 
 var $modal = document.querySelector('#modal-container');
-var $doneButton = $modal.querySelector('.done-button');
 
-$doneButton.onclick = function() {
+document.querySelector('#clear-completed-task').onclick = clearCompletedTodos;
+
+$modal.querySelector('.done-button').onclick = function() {
     var $titleWrapper = $modal.querySelector('.input-wrapper');
     var $title = $modal.querySelector('#title');
     var $description = $modal.querySelector('#description');
     var $dueDate = $modal.querySelector('#date');
     var $priority = $modal.querySelector('.priority');
 
+    // validation
     if ($title.value.length < 6) {
         $titleWrapper.classList.add('error');
-        // alert('Гарчиг 5с дээш тэмдэгт байх шаардлагатай!!!');
         return;
     }
 
-    var newTodo = {
-        id: parseInt(Math.random() * 9999999999),
-        title: $title.value,
-        description: $description.value,
-        dueDate: $dueDate.value,
-        priority: $priority.dataset.priority,
-        isDone: false,
-    };
-    addTodo(newTodo);
+    if (!$modal.dataset.editingid) {
+        var newTodo = {
+            id: parseInt(Math.random() * 9999999999),
+            title: $title.value,
+            description: $description.value,
+            dueDate: $dueDate.value,
+            createdAt: new Date().toISOString(),
+            priority: $priority.dataset.priority,
+            isDone: false,
+        };
+        addTodo(newTodo);
+    } else {
+        var id = $modal.dataset.editingid;
+        var title = $title.value;
+        var description = $description.value;
+        var dueDate = $dueDate.value;
+        var priority = $priority.dataset.priority;
 
-    // Clearing add todo form
-    $title.value = '';
-    $dueDate.value = '';
-    $description.value = '';
-    $priority.className = 'priority low';
-    $priority.dataset.priority = '1';
-
-    $modal.style.display = 'none';
+        updateTodo(id, title, description, dueDate, priority);
+    }
+    closeModal();
 };
+
+document.querySelectorAll('.sort-dropdown .dropdown-item').forEach(($dropdownItem) => {
+    $dropdownItem.onclick = sort;
+});
+
 
 function $createTodo(todo) {
     var $todoLi = document.createElement('li');
@@ -44,7 +53,7 @@ function $createTodo(todo) {
     if (todo.priority == 3) priorityClass = 'high';
 
     var todoContent = `
-        <div class="todo-item">
+        <div class="todo-item" data-id="${ todo.id }">
           <div class="item-display">
             <div class="priority ${ priorityClass }">
               <div class="priority-item"></div>
@@ -84,7 +93,15 @@ function $createTodo(todo) {
     $todoLi.querySelector('.kebab').onclick = toggleKebab;
 
     $todoLi.querySelector('.item-delete').onclick = deleteTodo;
+    $todoLi.querySelector('.item-edit').onclick = onEditClick;
     return $todoLi;
+}
+
+function onEditClick() {
+    var id = this.closest('.todo-item').dataset.id;
+
+    var todo = getTodoById(id);
+    openModal(todo);
 }
 
 function draw() {
