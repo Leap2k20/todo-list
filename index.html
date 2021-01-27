@@ -1,11 +1,75 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>TODO LIST</title>
   <link rel="stylesheet" href="./index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+  <header>
+    <div class="todo">
+      <div class="menu-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>        
+      </div>
+      <h1>TODO</h1>
+    </div>
+      <h2>Default Project</h2>
+      <div class="add-task" id="myBtn">
+        <div class="nemeh">
+          <div class="bosoo"></div>
+          <div class="hevtee"></div>
+        </div>
+        <div>New Task</div>
+      </div>
+  </header>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>NEW TASK</h3>
+    <div class="modal-container">
+        <input type="text" placeholder="Title" class=" title">
+        <input type="date" class="date">
+        <textarea placeholder="Description" class=" Description"></textarea>
+        <fieldset>
+                <legend>Priority</legend>
+                <div class="modal-prio">
+                    <div class="prio1"></div>
+                    <div class="prio2"></div>
+                    <div class="prio3"></div>
+                </div>
+        </fieldset>
+        <div></div>
+        <button onclick="addTask()">DONE</button>
+        </div>
+  </div>
+</div>
+  <main>
+    <div class="sort">
+      <span>Sory by:</span>
+      <select>
+        <option value="1">Date Created</option>
+        <option value="2">Priority</option>
+        <option value="3">Due Date</option>
+      </select>
+    </div>
+    <div class="active-task">
+      <div class="task-container">
+        <div class="priority">
+            <div class="prio1"></div>
+            <div class="prio2"></div>
+            <div class="prio3"></div>
+        </div>
+        <div>Өглөө сэрэх</div>
+        <div>2020.01.21</div>
+        <div>
+          <input type="checkbox">
+        </div>
+      </div>
+    </div>
+    <button>Clear Completed tasks</button>
+  </main>
   <script src="./index.js"></script>
 </body>
 </html>
