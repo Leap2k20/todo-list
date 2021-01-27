@@ -36,3 +36,14 @@ $priorityItems.forEach(($item) => {
         }
     });
 })
+
+function toggleTodoItem(e) {
+    if (e.target.classList.contains('kebab-more')) {
+        return;
+    }
+    this.querySelector('.item-more').classList.toggle('hidden');
+}
+
+function toggleKebab() {
+    this.querySelector('ul').classList.toggle('hidden');
+}
