@@ -335,36 +335,9 @@ header ul li:last-child{
     text-transform:uppercase;
 }
 
-.checkbox-label {
-    position: relative;
-}
-.checkbox-label>input{
+.is-done {
     width: 25px;
     height: 25px;
-    appearance: none;
-    border: 1px var(--border) solid;
-    background-color: transparent;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.checkbox-label>input:checked {
-    background-color: var(--bg);
-}
-.checkbox-label>input:checked+span::before {
-    position: absolute;
-    color: var(--dark);
-    content: "\e013";
-    display: inline-block;
-    left: 7.8px;
-    top: 8px;
-    font-family: "Glyphicons Halflings";
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0.5;
-    text-shadow: -0.7px -0.7px 0 var(--border), 0.7px -0.7px 0 var(--border), -0.7px 0.7px 0 var(--border), 0.7px 0.7px 0 var(--border);
-    cursor: pointer;
-    text-align: center;
 }
 
 

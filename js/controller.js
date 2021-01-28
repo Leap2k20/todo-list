@@ -8,15 +8,16 @@ function addTodo(newTodo){
 
 
 function toggleIsDone(){
-    var id = this.dataset.id;
-    var todoItem = todos.find(function(todo){
-        return todo.id === id;
-    });
-
-    todoItem.isDone = this.checked;
-    draw();
-    // show update in screen -draw()
+   var id = this.dataset.id;
+   var todoItem = todos.find((todo)=>{
+      return todo.id == id;
+   });
+   todoItem.isDone = this.checked;
+   draw();
+   console.log(this.checked)
 }
+
+
 
 function updateTodo(){
     //update todo item in todos list

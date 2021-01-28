@@ -53,8 +53,9 @@ $doneButton.onclick = function(){
         id: parseInt(Math.random()*999999999),       
         description: $description.value,
         duedate: $dueDate.value,
-        priority: $priority.dataset.priority,
         isDone: false,
+        priority: $priority.dataset.priority,
+        
     };
     addTodo(newTodo);
     $modal.style.display = 'none';
@@ -81,11 +82,7 @@ function $createTodo(todo){
                         </div>
                         <span class="todo-title">${todo.title}</span>
                         <span class="toto-date">${todo.duedate}</span>
-                        <label class="checkbox-label">
-                            <input type="checkbox" data-id='${todo.id}' class="is-done">
-                            <span class="checkbox-custom"></span>
-
-                        </label>
+                            <input type="checkbox" class="is-done" data-id='${todo.id}'">       
                     </div>
                     <div class="todo-secondary">
                         <span class="full-todo-title">${todo.title}</span>
@@ -93,7 +90,7 @@ function $createTodo(todo){
                         <p class="todo-desc">${todo.description}</p>
                     </div>
                 </div>`;
-                
+
     $todoDiv.innerHTML= todoContent;
     $todoDiv.querySelector('.is-done').onchange = toggleIsDone;
     return $todoDiv;
