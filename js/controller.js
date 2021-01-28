@@ -14,7 +14,7 @@ function toggleIsDone(){
    });
    todoItem.isDone = this.checked;
    draw();
-   console.log(this.checked)
+    console.log(this.checked);
 }
 
 

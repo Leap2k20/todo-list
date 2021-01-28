@@ -31,7 +31,7 @@ $priorityItems.forEach(($items)=>{
                 $priority.classList.add('high');
                 break
         }
-    
+
     })
 })
 //click model
@@ -43,19 +43,19 @@ $btn.onclick = function() {
      else {
          $modal.style.display = 'block';
      }
-    isModalOpen = !isModalOpen;  
+    isModalOpen = !isModalOpen;
   }
 
 
 $doneButton.onclick = function(){
     var newTodo = {
         title: $title.value,
-        id: parseInt(Math.random()*999999999),       
+        id: parseInt(Math.random()*999999999),
         description: $description.value,
         duedate: $dueDate.value,
         isDone: false,
         priority: $priority.dataset.priority,
-        
+
     };
     addTodo(newTodo);
     $modal.style.display = 'none';
@@ -82,7 +82,7 @@ function $createTodo(todo){
                         </div>
                         <span class="todo-title">${todo.title}</span>
                         <span class="toto-date">${todo.duedate}</span>
-                            <input type="checkbox" class="is-done" data-id='${todo.id}'">       
+                            <input type="checkbox" class="is-done" data-id='${todo.id}'" ${ todo.isDone ? 'checked' : '' }>
                     </div>
                     <div class="todo-secondary">
                         <span class="full-todo-title">${todo.title}</span>
@@ -104,7 +104,6 @@ function draw(){
     todos.forEach((todo)=>{
         $newTodo=$createTodo(todo);
         $todoList.append($newTodo);
-
     });
 }
 
@@ -132,11 +131,11 @@ function draw(){
 //     clickPriority[i].classList.toggle('dark');
 // }
 
-// for (var i =0; i< clickPriority.length; i++) 
+// for (var i =0; i< clickPriority.length; i++)
 //     clickPriority[i].onclick = onClickPriority;
 
 
 
 
 
-  
+
