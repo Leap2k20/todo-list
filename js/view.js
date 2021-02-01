@@ -21,6 +21,7 @@ function openModal(todo) {
 
     $modal.style.display = 'block';
 }
+
 function closeModal() {
     var $modal = document.querySelector('#modal-container');
     $modal.querySelector('#title').value = '';
@@ -31,6 +32,7 @@ function closeModal() {
 
     $modal.style.display = 'none';
 }
+
 document.querySelector('#modal-container .done-button').onclick = function() {
     var $modal = document.querySelector('#modal-container');
 
@@ -120,10 +122,11 @@ document.querySelectorAll('#modal-container .priority .priority-item').forEach((
 //:1 Helpers
 function onEditClick() {
     var id = this.closest('.todo-item').dataset.id;
-
-    var todo = getTodoById(id);
+    var todo = getTodo(id);
+    console.log(todo);
     openModal(todo);
 }
+
 function $createTodo(todo) {
     var $todoLi = document.createElement('li');
     var priorityClass = 'low';

@@ -1,7 +1,8 @@
+let todos = [];
 let db = firebase.firestore();
 
 function drawFromSnapshot(snapshot) {
-    let todos = [];
+    todos = [];
     snapshot.forEach((doc) => {
         todos.push(doc.data());
     });
@@ -11,7 +12,7 @@ function drawFromSnapshot(snapshot) {
 
 function create(newTodo) {
     db.collection('todos').doc(newTodo.id + '').set(newTodo);
-    db.collection('todos').get().then(drawFromSnapshot);
+   
 }
 
 function update(id, data) {
@@ -23,7 +24,12 @@ function update(id, data) {
     //     ...data,
     // }
 
-    db.collection('todos').get().then(drawFromSnapshot);
+}
+
+function getTodo(id) {  
+    return todos.find((todo) => {
+        return todo.id == id;
+    });
 }
 
 function sort(sortBy) {
@@ -64,7 +70,7 @@ function deleteTodo(id) {
     draw(Model.listTodos());
 }
 
-function clearCompletedTasks() {
+function clearCompletedTasks() { 
     let todos = Model.listTodos();
     todos = todos.filter((todo) => {
         return !todo.isDone;
@@ -84,10 +90,8 @@ function toggleIsDone(id) {
     draw(Model.listTodos());
 }
 
-function getTodoById(id) {
-    return Model.getTodo(id);
-}
+
 
 window.onload = function() {
-    db.collection('todos').get().then(drawFromSnapshot);
+    db.collection('todos').onSnapshot(drawFromSnapshot);
 };
