@@ -1,21 +1,15 @@
-let db = firebase.firestore();
-
-function drawFromSnapshot(snapshot) {
-    let todos = [];
-    snapshot.forEach((doc) => {
-        todos.push(doc.data());
-    });
-
-    draw(todos);
-}
-
 function create(newTodo) {
-    db.collection('todos').doc(newTodo.id + '').set(newTodo);
-    db.collection('todos').get().then(drawFromSnapshot);
+    Model.createNewTodo(newTodo);
+
+    draw(Model.listTodos());
 }
 
 function update(id, data) {
-    db.collection('todos').doc(id).set(data, { merge: true });
+    let todo = Model.getTodo(id);
+    todo.title = data.title;
+    todo.description = data.description;
+    todo.dueDate = data.dueDate;
+    todo.priority = data.priority;
 
     // Amazing!!! Spread Operator
     // todo = {
@@ -23,7 +17,9 @@ function update(id, data) {
     //     ...data,
     // }
 
-    db.collection('todos').get().then(drawFromSnapshot);
+    Model.replaceTodo(id, todo);
+
+    draw(Model.listTodos());
 }
 
 function sort(sortBy) {
@@ -89,5 +85,5 @@ function getTodoById(id) {
 }
 
 window.onload = function() {
-    db.collection('todos').get().then(drawFromSnapshot);
-};
+    draw(Model.listTodos());
+}

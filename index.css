@@ -161,7 +161,7 @@ main {
     transform: scaleY(1);
     transform-origin: top;
     transition: transform 0.26s ease;
-    
+
 }
 .todo-item .priority {
     width: 70px;

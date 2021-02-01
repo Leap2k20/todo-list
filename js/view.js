@@ -1,11 +1,39 @@
-var $todoList = document.querySelector('#todo-list');
-var $completedTodoList = document.querySelector('#todo-list-completed');
+//:1 Modal Section
+function openModal(todo) {
+    var $modal = document.querySelector('#modal-container');
+    if (todo) { // Task Edit
+        $modal.querySelector('#title').value = todo.title;
+        $modal.querySelector('#description').value = todo.description;
+        $modal.querySelector('#date').value = todo.dueDate;
 
-var $modal = document.querySelector('#modal-container');
+        var priorityClassName = 'priority low';
+        if (todo.priority == 2) priorityClassName = 'priority medium';
+        if (todo.priority == 3) priorityClassName = 'priority high';
+        $modal.querySelector('.priority').className = priorityClassName;
+        $modal.querySelector('.priority').dataset.priority = todo.priority;
+        $modal.querySelector('.title').innerText = 'Edit';
+        $modal.dataset.editingid = todo.id;
 
-document.querySelector('#clear-completed-task').onclick = clearCompletedTodos;
+    } else {  // New Task
+        delete $modal.dataset.editingid;
+        $modal.querySelector('.title').innerText = 'New Task';
+    }
 
-$modal.querySelector('.done-button').onclick = function() {
+    $modal.style.display = 'block';
+}
+function closeModal() {
+    var $modal = document.querySelector('#modal-container');
+    $modal.querySelector('#title').value = '';
+    $modal.querySelector('#description').value = '';
+    $modal.querySelector('#date').value = '';
+    $modal.querySelector('.priority').className = 'priority low';
+    $modal.querySelector('.priority').dataset.priority = '1';
+
+    $modal.style.display = 'none';
+}
+document.querySelector('#modal-container .done-button').onclick = function() {
+    var $modal = document.querySelector('#modal-container');
+
     var $titleWrapper = $modal.querySelector('.input-wrapper');
     var $title = $modal.querySelector('#title');
     var $description = $modal.querySelector('#description');
@@ -28,7 +56,7 @@ $modal.querySelector('.done-button').onclick = function() {
             priority: $priority.dataset.priority,
             isDone: false,
         };
-        addTodo(newTodo);
+        create(newTodo)
     } else {
         var id = $modal.dataset.editingid;
         var title = $title.value;
@@ -36,16 +64,66 @@ $modal.querySelector('.done-button').onclick = function() {
         var dueDate = $dueDate.value;
         var priority = $priority.dataset.priority;
 
-        updateTodo(id, title, description, dueDate, priority);
+        let updatingFields = {
+            title: title,
+            description: description,
+            dueDate: dueDate,
+            priority: priority,
+        };
+
+        update(id, updatingFields);
     }
     closeModal();
 };
 
-document.querySelectorAll('.sort-dropdown .dropdown-item').forEach(($dropdownItem) => {
-    $dropdownItem.onclick = sort;
+document.querySelector('#add-task').onclick = (e) => {
+    openModal();
+}
+document.querySelector('#modal-container').onclick = function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+}
+document.querySelector('#modal-container .input-wrapper').onclick = function() {
+    this.classList.remove('error');
+}
+//:1 Blabla
+function toggleTodoDetail(e) {
+    if (e.target.classList.contains('kebab-more')) {
+        return;
+    }
+    this.querySelector('.item-more').classList.toggle('hidden');
+}
+function toggleKebab() {
+    this.querySelector('ul').classList.toggle('hidden');
+}
+document.querySelectorAll('#modal-container .priority .priority-item').forEach(($item) => {
+    $item.addEventListener('click', function() {
+        var $priority = document.querySelector('#modal-container .priority');
+        $priority.className = 'priority';
+        $priority.dataset.priority = this.dataset.priority;
+
+        switch(this.dataset.priority) {
+            case '1':
+                $priority.classList.add('low');
+                break;
+            case '2':
+                $priority.classList.add('medium');
+                break;
+            case '3':
+                $priority.classList.add('high');
+                break;
+        }
+    });
 });
 
+//:1 Helpers
+function onEditClick() {
+    var id = this.closest('.todo-item').dataset.id;
 
+    var todo = getTodoById(id);
+    openModal(todo);
+}
 function $createTodo(todo) {
     var $todoLi = document.createElement('li');
     var priorityClass = 'low';
@@ -87,29 +165,39 @@ function $createTodo(todo) {
         </div>`;
 
     $todoLi.innerHTML = todoContent;
-    $todoLi.querySelector('.is-done').onchange = toggleIsDone;
+    $todoLi.querySelector('.is-done').onchange = function() {
+        toggleIsDone(todo.id);
+    }
 
-    $todoLi.onclick = toggleTodoItem;
+    $todoLi.onclick = toggleTodoDetail;
     $todoLi.querySelector('.kebab').onclick = toggleKebab;
 
-    $todoLi.querySelector('.item-delete').onclick = deleteTodo;
+    $todoLi.querySelector('.item-delete').onclick = function() {
+        deleteTodo(todo.id);
+    };
     $todoLi.querySelector('.item-edit').onclick = onEditClick;
     return $todoLi;
 }
+//:1 Clear completed tasks
+document.querySelector('#clear-completed-task').onclick = function() {
+    clearCompletedTasks();
+};
 
-function onEditClick() {
-    var id = this.closest('.todo-item').dataset.id;
+//:1 Sort
+document.querySelectorAll('.sort-dropdown .dropdown-item').forEach(($dropdownItem) => {
+    $dropdownItem.onclick = function() {
+        sort(this.dataset.sortby);
+    };
+});
 
-    var todo = getTodoById(id);
-    openModal(todo);
-}
+// Main draw function
+function draw(todos) {
+    var $todoList = document.querySelector('#todo-list');
+    var $completedTodoList = document.querySelector('#todo-list-completed');
 
-function draw() {
-    // Step 1: Clear entire screen
     $todoList.innerHTML = '';
     $completedTodoList.innerHTML = '';
 
-    // Step 2: Draw all todos
     todos.forEach((todo) => {
         $newTodo = $createTodo(todo);
 
