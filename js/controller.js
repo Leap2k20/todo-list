@@ -1,33 +1,28 @@
-let todos = [];
 let db = firebase.firestore();
+let todos = [];
+const products = [
+    {
+        'name': 'banana',
+        'price': 2500,
+    }
+]
 
 function drawFromSnapshot(snapshot) {
+    console.log("updated");
     todos = [];
     snapshot.forEach((doc) => {
         todos.push(doc.data());
     });
-
+    
     draw(todos);
 }
 
 function create(newTodo) {
-    db.collection('todos').doc(newTodo.id + '').set(newTodo).then(()=> {
-        todos.push(newTodo);
-        draw(todos);
-    })
+    db.collection('todos').doc(newTodo.id + '').set(newTodo);
 }
 
 function update(id, data) {
-    console.log(id);
-    console.log(data);
-    db.collection('todos').doc(id).set(data, { merge: true }).then(()=> {
-        var index = findIndex(id);
-        todos[index] = {
-           ...getTodo(id),
-           ...data
-        }
-        draw(todos);
-    })
+    db.collection('todos').doc(id).set(data, { merge: true });
     // Amazing!!! Spread Operator
     // todo = {
     //     ...todo,
@@ -36,42 +31,29 @@ function update(id, data) {
 }
 
 function deleteTodo(id) {
-    db.collection('todos').doc(`${id}`).delete().then(()=> {
-        var index = findIndex(id);
-        todos.splice(index, 1);
-        draw(todos);
-    })
+    db.collection('todos').doc(`${id}`).delete();
 }
 
 function clearCompletedTasks() { 
-    var deleteItems = todos.filter((todo) => {
-        return todo.isDone;
-    });
-    for(var i = 0; i < deleteItems.length; i ++){
-        db.collection('todos').doc(`${deleteItems[i].id}`).delete().then(()=> {
-        });
-    }
-    todos = todos.filter((todo) => {
-        return !todo.isDone;
-    });
-    draw(todos);
+    // var deleteItems = todos.filter((todo) => {
+    //     return todo.isDone;
+    // });
+    db.collection('todos')
+        // .where('isDone','==',false)
+        .where('priority','>=', 2)
+        .get().then((snapshot) => {
+        snapshot.forEach((doc)=> {
+            console.log(doc.data());
+        })
+    })
 }
 
 function toggleIsDone(id) {
     let todo = getTodo(id); 
     todo.isDone = !todo.isDone;
-    db.collection('todos').doc(`${id}`).set(todo, { merge: true }).then(()=> {
-        var index = findIndex(id);
-        todos[index] = {
-           ...getTodo(id),
-            isDone: todo.isDone
-        }
-        draw(todos);
-    })
+    db.collection('todos').doc(`${id}`).set(todo, { merge: true })
    
 }
-
-
 
 function findIndex(id) {
     return todos.findIndex((todo) => {
@@ -112,16 +94,11 @@ function sort(sortBy) {
             break;
     }
 
-    Model.replaceAllTodos(todos);
+    // Model.replaceAllTodos(todos);
 
-    draw(Model.listTodos());
+    // draw(Model.listTodos());
 }
 
-
-
-
-
-
 window.onload = function() {
-    db.collection('todos').get().then(drawFromSnapshot);
+    db.collection('todos').onSnapshot(drawFromSnapshot);
 };
