@@ -11,19 +11,72 @@ function drawFromSnapshot(snapshot) {
 }
 
 function create(newTodo) {
-    db.collection('todos').doc(newTodo.id + '').set(newTodo);
-   
+    db.collection('todos').doc(newTodo.id + '').set(newTodo).then(()=> {
+        todos.push(newTodo);
+        draw(todos);
+    })
 }
 
 function update(id, data) {
-    db.collection('todos').doc(id).set(data, { merge: true });
-
+    console.log(id);
+    console.log(data);
+    db.collection('todos').doc(id).set(data, { merge: true }).then(()=> {
+        var index = findIndex(id);
+        todos[index] = {
+           ...getTodo(id),
+           ...data
+        }
+        draw(todos);
+    })
     // Amazing!!! Spread Operator
     // todo = {
     //     ...todo,
     //     ...data,
     // }
+}
 
+function deleteTodo(id) {
+    db.collection('todos').doc(`${id}`).delete().then(()=> {
+        var index = findIndex(id);
+        todos.splice(index, 1);
+        draw(todos);
+    })
+}
+
+function clearCompletedTasks() { 
+    var deleteItems = todos.filter((todo) => {
+        return todo.isDone;
+    });
+    for(var i = 0; i < deleteItems.length; i ++){
+        db.collection('todos').doc(`${deleteItems[i].id}`).delete().then(()=> {
+        });
+    }
+    todos = todos.filter((todo) => {
+        return !todo.isDone;
+    });
+    draw(todos);
+}
+
+function toggleIsDone(id) {
+    let todo = getTodo(id); 
+    todo.isDone = !todo.isDone;
+    db.collection('todos').doc(`${id}`).set(todo, { merge: true }).then(()=> {
+        var index = findIndex(id);
+        todos[index] = {
+           ...getTodo(id),
+            isDone: todo.isDone
+        }
+        draw(todos);
+    })
+   
+}
+
+
+
+function findIndex(id) {
+    return todos.findIndex((todo) => {
+        return todo.id == id;
+    });
 }
 
 function getTodo(id) {  
@@ -64,34 +117,11 @@ function sort(sortBy) {
     draw(Model.listTodos());
 }
 
-function deleteTodo(id) {
-    Model.removeTodo(id);
 
-    draw(Model.listTodos());
-}
 
-function clearCompletedTasks() { 
-    let todos = Model.listTodos();
-    todos = todos.filter((todo) => {
-        return !todo.isDone;
-    });
-
-    Model.replaceAllTodos(todos);
-
-    draw(Model.listTodos());
-}
-
-function toggleIsDone(id) {
-    let todo = Model.getTodo(id);
-    todo.isDone = !todo.isDone;
-
-    Model.replaceTodo(id, todo);
-
-    draw(Model.listTodos());
-}
 
 
 
 window.onload = function() {
-    db.collection('todos').onSnapshot(drawFromSnapshot);
+    db.collection('todos').get().then(drawFromSnapshot);
 };
